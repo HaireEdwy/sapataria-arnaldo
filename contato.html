@@ -1,34 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entre em contato conosco para falar sobre orçamentos, pedidos, prazos ou só para bater um bom papo.">
+  <meta name="author" content="João Roccella">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <title>Sapataria do Arnaldo - Contato</title>
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre-nos.html">Sobre Nós</a></li>
-            <li><a href="contato.html">Contato</a></li>
-            <li><a href="catalogo.html">Catalogo</a></li>
-        </ul>
+  <header>
+    
+    <!-- Menu de Navegação -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
     </nav>
+    <h1 class="page-title">Contato</h1>
+    <h2 class="page-subtitle">Entre em contato conosco</h2>
+  </header>
 
-    <footer>
-        <adress>
-                <h1>Sapataria do Arnaldo</h1>
-                
-                <p>Rua Forte do Leme, 52</p>
-                <p>Jd. St. Adélia</p>
-                <p>São Paulo - SP</p>
-                <p>Telefone: (11) 3371-1279</p>
-            </adress>
-        </footer>
+  <main>
+  <div class="container">
+    <main>
+      <form action="" method="">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" autofocus required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="subject">Assunto:</label>
+        <input type="text" id="subject" required>
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" cols="30" rows="5"></textarea>
+
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone">
+
+        <input type="submit">
+      </form>
+    </main>
+
+  </main>
+    <aside>
+      <img src="./img/fachada-sapataria.webp" alt="Foto da fachada da sapataria">
+
+      <h3 class="">Horário de funcionamento</h3>
+      <p>Seg. a sex.</p>
+      <p>das 08h às 17h</p>
+      <p>Sábados</p>
+      <p>das 09h às 12h</p>
+    </aside>
+  </div>
+
+  <footer class="rodape">
+    <address>
+      <p>Rua Forte do Leme, 52</p>
+      <p>Jardim Santa Adélia</p>
+      <p>São Paulo - SP</p>
+      <p>(11) 3214-5678</p>
+    </address>
+  </footer>
+  
 </body>
-
 </html>
+  17  
+css/style.css
+@@ -94,7 +94,7 @@ main {
+
+.navbar ul {
+  display: flex;
+  justify-content: start;
+  justify-content: space-between;
+}
+
+.navbar li {
+@@ -103,4 +103,19 @@ main {
+
+.navbar a {
+  text-decoration: none;
+}
+
+/* Página de contato */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container img {
+  width: 200px;
+}
+
+.container h3 {
+  font-size: 14pt;
+  font-weight: 600;
+}
+ 
