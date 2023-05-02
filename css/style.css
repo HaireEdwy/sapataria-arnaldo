@@ -1,7 +1,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
 
   :root {
-      --primary-color: #a75207;
+      --primary-color: #ffffff;
   }
 
   body {
@@ -101,41 +101,48 @@
 
   .navbar li {
       padding: 20px;
-  }
-
-  .navbar a {
       text-decoration: none;
   }
 
-  /* Página de contato */
-  .container {
-      display: flex;
-      justify-content: space-between;
+  .navbar a:link,
+  .navbar a:link:visited {
+      color: var(--primary-color);
+      font-weight: 700;
   }
 
-  .container img {
-      width: 200px;
+  .navbar li:hover,
+  .navbar li:hover> a {
+      background-color: #ffffff;
   }
 
-  .container h3 {
-      font-size: 14pt;
-      font-weight: 600;
-  }
+  contact-form input,
+  contact-form textarea,
+  contact-form select,
+  contact-form button {
+      width: 100%;
+      box-sizing: border-box;
 
-  label,
-  button {
-    display: block
-  }
+      /* Página de contato */
+      .container {
+          display: flex;
+          justify-content: space-between;
+      }
 
-  contact-form {
-    width: 60%;
-    margin:auto;
-  }
+      .container img {
+          width: 200px;
+      }
 
-contact-form input,
-contact-form textarea,
-contact-form select,
-contact-form button {
-    width: 100%;
-    box-sizing: border-box;
-}
+      .container h3 {
+          font-size: 14pt;
+          font-weight: 600;
+      }
+
+      label,
+      button {
+          display: block #a75207 /* o que está errado?*/
+      }
+
+      contact-form {
+          width: 60%;
+          margin: auto;
+      }
