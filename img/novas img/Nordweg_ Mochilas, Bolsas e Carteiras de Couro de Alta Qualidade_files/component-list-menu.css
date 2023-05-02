@@ -1,0 +1,1 @@
+.list-menu--right{right:0}.list-menu--disclosure{position:absolute;top:calc(100% - 30px);left:50%;width:50%;background-color:rgb(var(--color-background))}.list-menu--disclosure:focus{outline:none}.list-menu--disclosure.localization-selector{max-height:18rem;overflow:auto;width:10rem;padding:.5rem}
