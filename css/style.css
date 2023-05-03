@@ -123,12 +123,14 @@
       box-sizing: border-box;
 
       /* Página de contato */
-      .container {
-          display: flex;
-          justify-content: space-between;
-      }
+       
+        .container {/*o que ha de errado?*/
+            display: flex;
+            justify-content: space-between
+        }
 
-      .container img {
+
+      .container img { 
           width: 200px;
       }
 
@@ -139,8 +141,9 @@
 
       label,
       button {
-          display: block #a75207 /* o que está errado?*/
-      }
+          display: block #a75207
+        }
+
 
       contact-form {
           width: 60%;
