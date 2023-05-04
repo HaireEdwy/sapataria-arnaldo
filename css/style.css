@@ -111,7 +111,7 @@
   }
 
   .navbar li:hover,
-  .navbar li:hover> a {
+  .navbar li:hover>a {
       background-color: #ffffff;
   }
 
@@ -123,14 +123,11 @@
       box-sizing: border-box;
 
       /* Página de contato */
-       
-        .container {/*o que ha de errado?*/
-            display: flex;
-            justify-content: space-between
-        }
+      .container
+      /*o que ha de errado?*/
+      display: flex;
 
-
-      .container img { 
+      justify-content: space-between .container img {
           width: 200px;
       }
 
@@ -142,7 +139,7 @@
       label,
       button {
           display: block #a75207
-        }
+      }
 
 
       contact-form {
