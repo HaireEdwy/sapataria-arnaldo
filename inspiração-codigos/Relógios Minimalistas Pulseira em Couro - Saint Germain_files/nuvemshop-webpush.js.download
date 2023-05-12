@@ -1,0 +1,35 @@
+var _egoiwp = _egoiwp || {};
+(function(){
+
+    const getArgs = function(){
+        var script_tag = document.currentScript;
+        var query = script_tag.src.replace(/^[^\?]+\??/,'');
+        var vars = query.split("&");
+        var args = {};
+        for (var i=0; i<vars.length; i++) {
+            var pair = vars[i].split("=");
+            args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');
+        }
+        return args;
+    }
+
+    const printWebpush = function(){
+        var args = getArgs();
+
+        if(!args['code']){return;}
+
+        (function(){
+            var u="https://cdn-static.egoiapp2.com/";
+            _egoiwp.code = args['code'];
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript';
+            g.defer=true;
+            g.async=true;
+            g.src=u+'webpush.js';
+            s.parentNode.insertBefore(g,s);
+        })();
+    }
+
+    printWebpush();
+
+})();

@@ -1,0 +1,814 @@
+[class*="fun-oferta-relampago"], [class*="fun-oferta-relampago"] * {
+  box-sizing: border-box; }
+[class*="fun-oferta-relampago"] .swiper-button-prev,
+[class*="fun-oferta-relampago"] .swiper-button-next {
+  left: 0;
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0;
+  padding: 0;
+  line-height: 30px;
+  border: 0 none;
+  background: transparent;
+  transition: 300ms all;
+  cursor: pointer;
+  z-index: 3; }
+  [class*="fun-oferta-relampago"] .swiper-button-prev:hover,
+  [class*="fun-oferta-relampago"] .swiper-button-next:hover {
+    transform: scale(1.06); }
+  [class*="fun-oferta-relampago"] .swiper-button-prev:after, [class*="fun-oferta-relampago"] .swiper-button-prev:before,
+  [class*="fun-oferta-relampago"] .swiper-button-next:after,
+  [class*="fun-oferta-relampago"] .swiper-button-next:before {
+    content: "";
+    width: 15px;
+    height: 2px;
+    border-radius: 1px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    transform: rotate(-45deg); }
+  [class*="fun-oferta-relampago"] .swiper-button-prev:before,
+  [class*="fun-oferta-relampago"] .swiper-button-next:before {
+    top: 18px;
+    transform: rotate(45deg); }
+  [class*="fun-oferta-relampago"] .swiper-button-prev.swiper-button-disabled,
+  [class*="fun-oferta-relampago"] .swiper-button-next.swiper-button-disabled {
+    display: none !important; }
+[class*="fun-oferta-relampago"] .swiper-button-next {
+  left: auto;
+  right: 0; }
+  [class*="fun-oferta-relampago"] .swiper-button-next:after, [class*="fun-oferta-relampago"] .swiper-button-next:before {
+    left: auto;
+    right: 0;
+    transform: rotate(45deg); }
+  [class*="fun-oferta-relampago"] .swiper-button-next:before {
+    transform: rotate(-45deg); }
+
+.fun-oferta-relampago-vitrine {
+  margin-bottom: 20px;
+  padding: 20px 0;
+  clear: both;
+  width: 100%; }
+  .fun-oferta-relampago-vitrine:after {
+    content: "";
+    clear: both;
+    display: block; }
+  @media (min-width: 768px) {
+    .fun-oferta-relampago-vitrine {
+      padding: 70px 0;
+      margin-bottom: 30px; } }
+  .fun-oferta-relampago-vitrine .js-fun-oferta-relampago-vitrine-swiper {
+    padding: 0 15px;
+    width: auto; }
+  .fun-oferta-relampago-vitrine .swiper-wrapper {
+    width: auto; }
+  @media (min-width: 768px) {
+    .fun-oferta-relampago-vitrine[data-qtd="1"] .swiper-wrapper, .fun-oferta-relampago-vitrine[data-qtd="2"] .swiper-wrapper, .fun-oferta-relampago-vitrine[data-qtd="3"] .swiper-wrapper {
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-pack: center !important;
+      justify-content: center !important; } }
+  .fun-oferta-relampago-vitrine__container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important; }
+    @media (min-width: 576px) {
+      .fun-oferta-relampago-vitrine__container {
+        max-width: 540px; } }
+    @media (min-width: 768px) {
+      .fun-oferta-relampago-vitrine__container {
+        max-width: 720px; } }
+    @media (min-width: 992px) {
+      .fun-oferta-relampago-vitrine__container {
+        max-width: 960px; } }
+    @media (min-width: 1200px) {
+      .fun-oferta-relampago-vitrine__container {
+        max-width: 1140px; } }
+  .fun-oferta-relampago-vitrine__titulo {
+    display: block;
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0;
+    width: 100%; }
+  .fun-oferta-relampago-vitrine__texto {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0;
+    text-align: center;
+    width: 100%; }
+  .fun-oferta-relampago-vitrine__contador {
+    display: table !important;
+    max-width: 100%;
+    margin: 30px auto 40px; }
+    @media (min-width: 768px) {
+      .fun-oferta-relampago-vitrine__contador {
+        transform: scale(1.7); } }
+    .fun-oferta-relampago-vitrine__contador > div {
+      display: table;
+      margin: auto; }
+  .fun-oferta-relampago-vitrine__produtos {
+    margin-top: 35px;
+    width: 100%; }
+  .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto {
+    padding: 0 10px; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__borda {
+      margin: 10px auto;
+      max-width: 250px;
+      border-radius: 4px;
+      background: #fff;
+      padding: 15px;
+      position: relative;
+      transition: 300ms all;
+      box-shadow: 0 0 5px 0 white; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__borda:hover {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__imagem a {
+      display: block;
+      height: 220px;
+      position: relative;
+      overflow: hidden; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__imagem img {
+      position: absolute;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__nome {
+      height: 54px;
+      padding: 0;
+      margin: 10px 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__nome a {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        display: inline-block;
+        text-transform: none; }
+        .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__nome a:hover {
+          opacity: .9;
+          text-transform: none; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco a, .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco a:hover {
+      text-decoration: none; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco .fun-produto-preco {
+      min-height: 40px;
+      margin: 10px 0;
+      padding: 0; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco .fun-produto-preco > span {
+        margin: 0;
+        padding: 0; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco .fun-produto-preco .price-compare {
+        font-size: 13px;
+        line-height: 15px;
+        display: block;
+        font-weight: 400;
+        height: 20px;
+        text-decoration: line-through;
+        color: #b7b7b7;
+        margin: 0;
+        border: 0; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__preco .fun-produto-preco .item-price {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 25px;
+        display: block;
+        height: 30px;
+        margin: 0;
+        border: 0; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-modal-variacoes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      opacity: 0;
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: 300ms all;
+      border-radius: 4px; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-modal-variacoes.ativo {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+        bottom: 60px; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-variation {
+      margin: 15px 0; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-variation label {
+        font-size: 14px;
+        line-height: 16px;
+        display: block;
+        margin: 0 0 4px;
+        font-weight: 400; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-variation select {
+        display: block;
+        width: 100%;
+        height: 36px;
+        border: 0 none;
+        background-color: #f3f3f3;
+        font-size: 13px;
+        line-height: 36px;
+        border-radius: 3px; }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-fecha-variacao {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      margin: 0 0 0 -15px;
+      border-radius: 100%;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #d2d2d2;
+      background: transparent;
+      text-align: center;
+      line-height: 26px;
+      font-size: 0;
+      color: transparent;
+      transition: 300ms all;
+      padding: 0; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-fecha-variacao:hover {
+        transform: scale(1.04); }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-fecha-variacao:before, .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-fecha-variacao:after {
+        content: "";
+        width: 15px;
+        height: 2px;
+        background: #afafaf;
+        border-radius: 1px;
+        position: absolute;
+        top: 11px;
+        left: 5px;
+        transform: rotate(45deg); }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__variacoes .js-fun-produto-fecha-variacao:after {
+        transform: rotate(-45deg); }
+    .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__comprar button {
+      display: block;
+      width: 100%;
+      border: 0 none;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.56px;
+      min-width: 172px;
+      height: 45px;
+      line-height: 45px;
+      padding: 0 15px;
+      transition: 300ms all;
+      border-radius: 4px; }
+      .fun-oferta-relampago-vitrine .fun-oferta-relampago-produto__comprar button:hover {
+        opacity: .9; }
+
+#fun-oferta-relampago-banner-box {
+  display: none !important;
+  clear: both;
+  width: 100%; 
+}
+  @media (min-width: 320px) {
+    #fun-oferta-relampago-banner-box {
+      display: block !important; 
+    } 
+  }
+  @media (max-width: 767px) {
+    .fun-oferta-relampago-banner__container{
+        transform: scale(0.9);
+        padding: 0px 0px 0px 0px !important;
+        margin: -10px 0px -10px -5px !important;
+    }
+    .fun-oferta-relampago-banner__titulo {
+      font-size: 11px !important;
+      line-height: 7px !important;
+      white-space: nowrap !important;
+      width: 40% !important;
+      margin-right: 10px !important;
+    }
+    .fun-oferta-relampago-banner__contador {
+        transform: scale(0.5);
+        width: 30% !important;
+    }
+    .fun-oferta-relampago-banner__btn {
+        transform: scale(0.5);
+        width: 30% !important;
+        padding: 0px 0px 0px 0px !important;
+    }
+    .fun-oferta-relampago-contador__dia,
+    .fun-oferta-relampago-contador__hora, 
+    .fun-oferta-relampago-contador__minuto,
+    .fun-oferta-relampago-contador__segundo 
+    {
+        padding:  0px 0px 5px 0px !important;
+    }
+    
+  }
+  #fun-oferta-relampago-banner-box:after {
+    content: "";
+    clear: both;
+    display: block; 
+  }
+  #fun-oferta-relampago-banner-box.flutuante {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999999;
+    background: #000; }
+  #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner {
+    padding: 5px 0; }
+    #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__container {
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-pack: justify !important;
+      justify-content: space-between !important;
+      -ms-flex-align: center !important;
+      align-items: center !important;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto; }
+      @media (min-width: 576px) {
+        #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__container {
+          max-width: 540px; } }
+      @media (min-width: 768px) {
+        #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__container {
+          max-width: 720px; } }
+      @media (min-width: 992px) {
+        #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__container {
+          max-width: 960px; } }
+      @media (min-width: 1200px) {
+        #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__container {
+          max-width: 1140px; } }
+    #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__texto {
+      display: none !important; }
+      @media (min-width: 1200px) {
+        #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__texto {
+          display: block !important; } }
+    #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__btn a {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.56px;
+      min-width: 172px;
+      height: 31px;
+      line-height: 30px;
+      padding: 0 15px;
+      transition: 300ms all;
+      border-radius: 4px;
+      text-align: center; }
+      #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__btn a, #fun-oferta-relampago-banner-box .fun-oferta-relampago-banner__btn a:hover {
+        text-decoration: none;
+        outline: 0 none;
+        box-shadow: 0 0 0 0 transparent; }
+
+.js-fun-oferta-relampago-pagina-produto {
+  padding: 30px 15px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 15px 0;
+  clear: both;
+  width: 100%; }
+  .js-fun-oferta-relampago-pagina-produto:after {
+    content: "";
+    clear: both;
+    display: block; }
+  .js-fun-oferta-relampago-pagina-produto .fun-oferta-relampago-banner-pagina-produto__titulo {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 15px; }
+
+.fun-oferta-relampago-tema {
+  background-image: none;
+  background-position: top center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-size: 100% auto; }
+  .fun-oferta-relampago-tema.fun-oferta-relampago-vitrine {
+    background-size: auto 100%; }
+  .fun-oferta-relampago-tema .fun-oferta-relampago-contador {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important; }
+    .fun-oferta-relampago-tema .fun-oferta-relampago-contador.esconder_dia .fun-oferta-relampago-contador__dia {
+      display: none !important; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner-pagina-produto:after,
+  .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner-pagina-produto:after,
+  .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__titulo,
+  .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo:before,
+  .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner-pagina-produto:after {
+    width: 320px;
+    height: 40px; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo:before {
+    width: 100%;
+    max-width: 100%; }
+    @media (min-width: 768px) {
+      .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo:before {
+        max-width: 600px;
+        height: 90px; } 
+    }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__texto, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__texto, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__texto, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__texto, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__texto,
+  .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo,
+  .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__texto,
+  .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo {
+    color: #fff; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo {
+    font-size: 20px;
+    line-height: 20px; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__titulo {
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    width: 206px;
+    height: 35px;
+    background: none no-repeat scroll center transparent;
+    background-size: 100%; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__btn a, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__btn a {
+    background: transparent;
+    border: 1px solid #fff;
+    height: 33px;
+    color: #fff; }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__btn a:hover, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__btn a:hover {
+      background: opacity(0.7); }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.nataL_3 .fun-oferta-relampago-vitrine__titulo:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo:before {
+    content: "";
+    display: table;
+    margin: 0 auto 30px;
+    background: none no-repeat scroll center transparent;
+    background-size: 100%;
+    width: 100%; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner-pagina-produto:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner-pagina-produto:after {
+    content: "";
+    display: table;
+    margin: 15px auto 0;
+    background: none no-repeat scroll center transparent;
+    background-size: 100% auto; }
+  .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span {
+    position: relative;
+    margin: 0 2px;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important; }
+    @media (min-width: 768px) {
+      .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span {
+        width: 67px;
+        height: 31px; } }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span:after {
+      width: 23px;
+      height: 16px;
+      border-radius: 3px;
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0; }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span:after {
+      left: 24px; }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span,.fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span {
+      display: block;
+      position: relative;
+      height: 31px;
+      font: bold 26px/31px sans-serif;
+      letter-spacing: 7px;
+      z-index: 2;
+      width: 47px;
+      padding: 1px 0 0 6px; }
+      .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:after, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > span:after {
+        top: 16px;
+        z-index: -1; }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > small {
+      font-size: 9px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      line-height: 13px;
+      text-align: center;
+      margin: 0;
+      text-transform: lowercase; }
+      @media (max-width: 767px) {
+        .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > small {
+          position: absolute;
+          bottom: -7px;
+          color: #fff !important;
+          left: 50%;
+          transform: translateX(-50%); } }
+      @media (min-width: 768px) {
+        .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-contador > span > small {
+          writing-mode: vertical-rl;
+          text-orientation: mixed; } }
+  .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-contador > span, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span {
+    position: relative;
+    width: 52px;
+    height: 30px;
+    margin: 0 2px;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important; }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-contador > span > span, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span > span {
+      display: block;
+      position: relative;
+      height: 30px;
+      font: bold 26px/30px sans-serif;
+      letter-spacing: 0px;
+      z-index: 2;
+      width: 42px;
+      text-align: center;
+      border-radius: 3px; }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.verao .fun-oferta-relampago-contador > span > small, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span > small {
+      font-size: 9px;
+      letter-spacing: 0;
+      line-height: 13px;
+      text-align: center;
+      margin: 0;
+      text-transform: lowercase;
+      writing-mode: vertical-rl;
+      text-orientation: mixed; }
+  .fun-oferta-relampago-tema.black_friday {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-black_friday.jpg?a=1"); }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-black_friday.png?a=1"); }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__btn a {
+      background: #FFBC00;
+      border: 0 none;
+      color: #000000; }
+      .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-banner__btn a:hover {
+        background: #cc9600; }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span:after {
+      background: rgba(255, 255, 255, 0.38); }
+    .fun-oferta-relampago-tema.black_friday .fun-oferta-relampago-contador > span > span {
+      color: #FFBC00; }
+  .fun-oferta-relampago-tema.natal {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-natal.jpg?a=1"); }
+    .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.natal .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.natal .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-natal.png?a=1"); }
+    .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span:after {
+      background: #F41616; }
+    .fun-oferta-relampago-tema.natal .fun-oferta-relampago-contador > span > span {
+      color: #fff; }
+  .fun-oferta-relampago-tema.natal_2 {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-natal_2.png?a=1"); }
+    .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-natal_2.png?a=1"); }
+    .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span:after {
+      background: #F41616; }
+    .fun-oferta-relampago-tema.natal_2 .fun-oferta-relampago-contador > span > span {
+      color: #fff; }
+  .fun-oferta-relampago-tema.natal_3 {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-natal_3.png?a=1"); }
+    .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-natal_3.png?a=1"); }
+    .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span:after {
+      background: #F41616; }
+    .fun-oferta-relampago-tema.natal_3 .fun-oferta-relampago-contador > span > span {
+      color: #fff; }
+  .fun-oferta-relampago-tema.criancas {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-criancas.jpg?a=1"); }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-criancas.png?a=1"); }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__texto,
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__titulo,
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-vitrine__texto {
+      color: #333; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__btn a {
+      background: #04CD79;
+      border: 0 none;
+      border-radius: 2px;
+      color: #fff; }
+      .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-banner__btn a:hover {
+        background: #039b5b; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span:after {
+      background: #F41616; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > span {
+      color: #fff; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(1):before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(1):after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(1) > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(1) > span:after {
+      background: #F23BBA; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(2):before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(2):after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(2) > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(2) > span:after {
+      background: #19AC2F; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(3):before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(3):after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(3) > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(3) > span:after {
+      background: #1673F4; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(4):before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(4):after, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(4) > span:before, .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span:nth-child(4) > span:after {
+      background: #F4B716; }
+    .fun-oferta-relampago-tema.criancas .fun-oferta-relampago-contador > span > small {
+      color: #333; }
+  .fun-oferta-relampago-tema.namorados {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-namorados.jpg?a=1"); }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-namorados.png?a=1"); }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-contador > span > span {
+      color: #fff;
+      background: #CD808C; }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-contador > span > small {
+      color: #FFFFFF; }
+    .fun-oferta-relampago-tema.namorados .fun-oferta-relampago-banner-pagina-produto__titulo {
+      color: #fff; }
+  .fun-oferta-relampago-tema.verao {
+    background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/bg-verao.jpg?a=1"); }
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__titulo,
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-vitrine__titulo:before,
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner-pagina-produto:after {
+      background-image: url("https://cdn-local.funsales.com.br/nuvem-shop/oferta-relampago/img/titulo-verao.png?a=1"); }
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__btn a {
+      background: transparent;
+      border: 1px solid #fff;
+      height: 33px;
+      color: #fff; }
+      .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner__btn a:hover {
+        background: opacity(0.7); }
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-contador > span > span {
+      color: #fff;
+      background: rgba(0, 203, 180, 0.38); }
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-contador > span > small {
+      color: #FFFFFF; }
+    .fun-oferta-relampago-tema.verao .fun-oferta-relampago-banner-pagina-produto__titulo {
+      color: #fff; }
+  .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-banner__titulo, .fun-oferta-relampago-tema.circular .fun-oferta-relampago-banner__titulo {
+    font-weight: bold;
+    font-size: 21px;
+    letter-spacing: 0;
+    line-height: 21px; }
+  .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-banner__texto, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-banner__texto, .fun-oferta-relampago-tema.circular .fun-oferta-relampago-banner__texto {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 16px; }
+  .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-banner__titulo {
+    letter-spacing: 0.66px; }
+  .fun-oferta-relampago-tema.padrao .fun-oferta-relampago-banner__texto {
+    letter-spacing: 0.5px; }
+  .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador__hora:after, .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador__minuto:after {
+    content: ":";
+    font-size: 20px;
+    line-height: 20px;
+    width: 10px;
+    position: absolute;
+    top: 0;
+    right: -13px;
+    margin-top: 0;
+    background: transparent; }
+  .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span {
+    position: relative;
+    margin: 0 5px; }
+    .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span > span {
+      width: 40px;
+      display: block;
+      font: bold 26px/30px sans-serif;
+      letter-spacing: 1px;
+      padding: 0;
+      text-align: center;
+      margin-bottom: 4px; }
+    .fun-oferta-relampago-tema.padrao_2 .fun-oferta-relampago-contador > span > small {
+      display: block;
+      font: bold 9px/10px sans-serif;
+      letter-spacing: 0;
+      text-align: center;
+      margin: 0;
+      text-transform: lowercase; }
+  .fun-oferta-relampago-tema.circular .fun-oferta-relampago-contador__hora:after, .fun-oferta-relampago-tema.circular .fun-oferta-relampago-contador__minuto:after {
+    content: ":";
+    font-size: 20px;
+    line-height: 26px;
+    width: 10px;
+    position: absolute;
+    top: 0;
+    right: -13px;
+    margin-top: 0;
+    background: transparent; }
+  .fun-oferta-relampago-tema.circular .fun-oferta-relampago-contador > span {
+    position: relative;
+    margin: 0 5px; }
+    .fun-oferta-relampago-tema.circular .fun-oferta-relampago-contador > span > span {
+      width: 28px;
+      display: block;
+      font: bold 16px/30px sans-serif;
+      letter-spacing: 1px;
+      padding: 0;
+      text-align: center;
+      margin-bottom: 4px;
+      border-radius: 100%;
+      height: 28px; }
+    .fun-oferta-relampago-tema.circular .fun-oferta-relampago-contador > span > small {
+      display: block;
+      font: bold 9px/10px sans-serif;
+      letter-spacing: 0;
+      text-align: center;
+      margin: 0;
+      text-transform: lowercase; }
+  .fun-oferta-relampago-tema.ordem_2 [class*="__contador"] {
+    -ms-flex-order: 1;
+    order: 1; }
+  .fun-oferta-relampago-tema.ordem_2 [class*="__produtos"],
+  .fun-oferta-relampago-tema.ordem_2 [class*="__btn"] {
+    -ms-flex-order: 4;
+    order: 4; }
+  .fun-oferta-relampago-tema.ordem_2 [class*="__titulo"] {
+    -ms-flex-order: 2;
+    order: 2; }
+  .fun-oferta-relampago-tema.ordem_2 [class*="__texto"] {
+    -ms-flex-order: 3;
+    order: 3; }
+
+.fun-oferta-relampago-item-vitrine {
+  border-radius: 4px;
+  padding: 10px 0;
+  text-align: center;
+  display: block;
+  margin: auto;
+  min-height: 50px;
+  clear: both; }
+  .fun-oferta-relampago-item-vitrine:after {
+    content: '';
+    clear: both;
+    display: table; }
+  .fun-oferta-relampago-item-vitrine.black_friday, .fun-oferta-relampago-item-vitrine.natal, .fun-oferta-relampago-item-vitrine.criancas, .fun-oferta-relampago-item-vitrine.natal_2, .fun-oferta-relampago-item-vitrine.criancas, .fun-oferta-relampago-item-vitrine.natal_3, .fun-oferta-relampago-item-vitrine.criancas, .fun-oferta-relampago-item-vitrine.padrao {
+    padding-left: 0; }
+    @media (min-width: 768px) {
+      .fun-oferta-relampago-item-vitrine.black_friday, .fun-oferta-relampago-item-vitrine.natal, .fun-oferta-relampago-item-vitrine.natal_2, .fun-oferta-relampago-item-vitrine.natal_3, .fun-oferta-relampago-item-vitrine.criancas, .fun-oferta-relampago-item-vitrine.padrao {
+        padding-left: 10px; } }
+  .fun-oferta-relampago-item-vitrine.padrao_2 .fun-oferta-relampago-contador__hora:after,
+  .fun-oferta-relampago-item-vitrine.padrao_2 .fun-oferta-relampago-contador__minuto:after, .fun-oferta-relampago-item-vitrine.circular .fun-oferta-relampago-contador__hora:after,
+  .fun-oferta-relampago-item-vitrine.circular .fun-oferta-relampago-contador__minuto:after {
+    right: -10px; }
+  @media (max-width: 767px) {
+    .fun-oferta-relampago-item-vitrine .js-fun-oferta-relampago-contador {
+      transform: scale(0.6); } }
+
+.container .fun-oferta-relampago-banner-box__container,
+.container .fun-oferta-relampago-vitrine__container {
+  padding: 0; }
+
+.js-masonry-grid-item .fun-oferta-relampago-item-vitrine,
+.js-masonry-item .fun-oferta-relampago-item-vitrine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3; }
+  .js-masonry-grid-item .fun-oferta-relampago-item-vitrine.style,
+  .js-masonry-item .fun-oferta-relampago-item-vitrine.style {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto; }
+
+.js-masonry-grid-item .item-image-container .fun-oferta-relampago-item-vitrine.style,
+.js-masonry-item .item-image-container .fun-oferta-relampago-item-vitrine.style {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+/*# sourceMappingURL=myapp.css.map */
