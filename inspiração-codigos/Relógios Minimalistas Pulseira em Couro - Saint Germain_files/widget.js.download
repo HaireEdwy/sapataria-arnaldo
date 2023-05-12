@@ -1,0 +1,256 @@
+'use strict';
+
+(function (LS) {
+  var appUrl = 'https://www.stocknube.app';
+  var widgetCss = '#stock-notification-container{display:none;border:1px solid #6c757d;border-radius:7px;color:#6c757d;clear:both}#stock-notification-container #stock-notification-request-message{padding:8px 20px;cursor:pointer}#stock-notification-container #stock-notification-request-message i.arrow{border:solid #6c757d;border-width:0 3px 3px 0;display:inline-block;padding:3px;transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}#stock-notification-container #stock-notification-success-message{display:none;padding:10px 20px}#stock-notification-container #stock-notification-form{display:none;padding-right:10px;padding-left:10px}#stock-notification-container #stock-notification-form span{display:block;overflow:hidden}#stock-notification-container #stock-notification-form input#stock-notification-email{width:100%;padding:.375rem .75rem;border:1px solid #ced4da;border-radius:.25rem;margin-top:8px;margin-bottom:8px}#stock-notification-container #stock-notification-form input#stock-notification-email:focus{color:#495057;border:1px solid #6c757d}#stock-notification-container #stock-notification-form input#stock-notification-submit{margin:8px auto 8px 8px;float:right;padding:.375rem .75rem;border:1px solid #6c757d;border-radius:.25rem;color:#6c757d;background-color:#efefef}#stock-notification-container.new_linkedman{margin-top:20px;font-size:1rem;border-radius:0}#stock-notification-container.new_linkedman #stock-notification-email{width:90% !important;font-size:1rem}#stock-notification-container.new_linkedman #stock-notification-submit{font-size:1rem;line-height:1.1rem}#stock-notification-container.habitus{margin-top:1rem;margin-right:0;margin-left:auto;width:270px;text-align:center}#stock-notification-container.zen{border-radius:0px;margin-top:1rem}#stock-notification-container.zen input{height:100%;line-height:1.1rem}#stock-notification-container.zen #stock-notification-email{padding:4px 6px}#stock-notification-container.luxury{margin-bottom:20px}#stock-notification-container.luxury #stock-notification-email{width:90% !important;line-height:1.1rem}#stock-notification-container.luxury #stock-notification-submit{line-height:1.1rem}#stock-notification-container.tech{margin-top:1rem}#stock-notification-container.idea{margin-bottom:1rem}#stock-notification-container.idea input{font-size:14px}#stock-notification-container.bahia{margin-bottom:1rem}#stock-notification-container.bahia input{font-size:14px}#stock-notification-container.cancun{margin-top:1rem;width:100%}.notification-list-button{margin-top:1rem;margin-left:.5rem;margin-right:.5rem;border:1px solid #6c757d;border-radius:7px;color:#6c757d;text-transform:uppercase;padding:3px;text-align:center}.notification-list-button.idea{margin-top:0;padding:0}.notification-list-button.material{margin-left:0;margin-right:0;padding-top:5px;padding-bottom:5px}.notification-list-button.new_linkedman{margin-top:0;border-radius:0;color:#434343;border:1px solid rgba(67,67,67,0.3)}.notification-list-button.bahia{clear:both}';
+  var storeConfig;
+  var selectedVariant;
+
+  var getNotificationRequestElement = function getNotificationRequestElement() {
+    return "\n      <style>\n       ".concat(widgetCss, "\n      </style>\n      <div id='stock-notification-container' class='").concat(LS.theme.code, "'>\n        <div id='stock-notification-request-message' href='#'>").concat(storeConfig.notificationRequestMessage, " <i class=\"arrow\"></i></div>\n        <div id='stock-notification-success-message' href='#'>").concat(storeConfig.notificationSuccessMessage, "</div>\n        <form id='stock-notification-form'>\n          <input type='submit' id='stock-notification-submit' value='").concat(storeConfig.sentButtonLabel, "'></input>\n          <span><input id='stock-notification-email' required placeholder='").concat(storeConfig.emailInputPlaceholder, "'></input></span>\n        </form>\n      </div>\n    ");
+  };
+
+  var getSelectedVariant = function getSelectedVariant() {
+    var currentVariant = {};
+    var selects = $('[data-store^="product-form"] select[name^=variation]');
+
+    if (selects.length == 0) {
+      selects = $('[data-store^="product-form"] input[name^=variation]');
+    }
+
+    if (selects.is(':radio')) {
+      selects = selects.filter(':checked');
+    }
+
+    selects.each(function (index, select) {
+      var key = 'option' + /variation\[(\d+)\]/.exec($(select).attr('name'))[1];
+      currentVariant[key] = $(select).val();
+    });
+    var theVariant = null;
+    $.each(LS.variants, function (_index, variant) {
+      var matches = true;
+      $.each(currentVariant, function (key) {
+        if (variant[key] != currentVariant[key]) {
+          matches = false;
+        }
+      });
+
+      if (matches) {
+        theVariant = variant;
+      }
+    });
+    return theVariant;
+  };
+
+  var onVariantSelected = function onVariantSelected(variant) {
+    if (!variant) {
+      variant = LS.variants.find(function (i) {
+        return i.available;
+      }) || LS.variants[0];
+    }
+
+    if (variant.stock === 0) {
+      $('#stock-notification-container').css('display', 'block');
+    } else {
+      $('#stock-notification-container').hide();
+    }
+
+    selectedVariant = variant;
+  };
+
+  var getWidgetContainer = function getWidgetContainer() {
+    var widgetContainer = $('#stocknube-app-container').first();
+
+    if (widgetContainer.length > 0) {
+      return widgetContainer;
+    }
+
+    widgetContainer = $('[data-store^="product-buy-button"]').first();
+    return widgetContainer.length > 0 ? widgetContainer : $('input[type=submit].js-prod-submit-form').first();
+  };
+
+  var injectNotificationRequestElement = function injectNotificationRequestElement() {
+    if (LS.product.tags.includes('no-stock-notif')) {
+      return console.log('Notificaciones de Stock: El producto tiene el tag no-stock-notif, no se va a mostrar el boton');
+    }
+
+    var widgetContainer = getWidgetContainer();
+
+    if (widgetContainer.length === 0) {
+      throw new Error('Notificaciones de Stock: No se pudo encontrar una posición en la página donde insertar el widget');
+    }
+
+    widgetContainer.after(getNotificationRequestElement());
+    $('#stock-notification-submit').click(function (event) {
+      onNotificationRequestSubmitted();
+      event.preventDefault();
+    });
+    $('#stock-notification-request-message').click(function (event) {
+      $('#stock-notification-request-message').hide();
+      $('#stock-notification-form').fadeIn();
+      event.preventDefault();
+    });
+    var variant = getSelectedVariant();
+    onVariantSelected(variant);
+    LS.registerOnChangeVariant(onVariantSelected);
+
+    if (LS.theme.code === 'cancun') {
+      $('input.js-theme-change-variant').change(function () {
+        onVariantSelected(getSelectedVariant());
+      });
+    }
+  };
+
+  var onNotificationRequestSubmitted = function onNotificationRequestSubmitted() {
+    var inputValue = $('#stock-notification-email').val();
+    if (!inputValue) return;
+    var email = null;
+    var phoneNumber = null;
+
+    if (inputValue.includes('@')) {
+      email = inputValue;
+    } else if (storeConfig.allowPhoneNumbers) {
+      phoneNumber = inputValue;
+    } else {
+      return;
+    }
+
+    $('#stock-notification-submit').val('...');
+    var variants = [];
+
+    if (selectedVariant) {
+      variants = [selectedVariant.option0, selectedVariant.option1, selectedVariant.option2];
+    }
+
+    var notificationRequest = {
+      productId: LS.product.id,
+      productName: LS.product.name,
+      productVariantSKU: selectedVariant && selectedVariant.sku,
+      productVariantId: selectedVariant && selectedVariant.id,
+      productVariantName: selectedVariant && variants.filter(Boolean).join(' - '),
+      productLink: window.location.href,
+      storeId: LS.store.id,
+      lang: LS.langCode,
+      email: email,
+      phoneNumber: phoneNumber
+    };
+    fetch("".concat(appUrl, "/api/notifications"), {
+      method: 'POST',
+      body: JSON.stringify(notificationRequest),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      if (response.ok) {
+        $('#stock-notification-form').hide();
+        $('#stock-notification-success-message').fadeIn();
+      } else {
+        $('#stock-notification-submit').val(storeConfig.sentButtonLabel);
+        throw new Error('Notificaciones de Stock: No se pudo enviar la notificación');
+      }
+    })["catch"](function () {
+      $('#stock-notification-submit').val(storeConfig.sentButtonLabel);
+      throw new Error('Notificaciones de Stock: No se pudo enviar la notificación');
+    });
+  };
+
+  var initialButtonInProductListRender = function initialButtonInProductListRender() {
+    document.head.insertAdjacentHTML('beforeend', "<style>".concat(widgetCss, "</style>"));
+    $('div[data-product-type$="list"]').each(injectButtonInProductFromProductList);
+    masonryGridRerender();
+    renderButtonInProductListWhenMoreProductsAreAdded();
+  };
+
+  var masonryGridRerender = function masonryGridRerender() {
+    if (typeof $masonry_grid !== 'undefined' && typeof $masonry_grid.layout === 'function') {
+      $masonry_grid.layout();
+    }
+  };
+
+  var renderButtonInProductListWhenMoreProductsAreAdded = function renderButtonInProductListWhenMoreProductsAreAdded() {
+    var callback = function callback(mutationsList, _observer) {
+      var injectedSomething = false;
+
+      for (var mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          for (var node of mutation.addedNodes) {
+            injectedSomething = true;
+
+            if ($(node).is('div[data-product-type$="list"]')) {
+              injectButtonInProductFromProductList.call($(node));
+            } else {
+              var results = $(node).find('div[data-product-type$="list"]');
+              results.each(injectButtonInProductFromProductList);
+            }
+          }
+        }
+      }
+
+      if (injectedSomething) {
+        masonryGridRerender();
+      }
+    };
+
+    var observer = new MutationObserver(callback);
+    var table = document.getElementsByClassName('js-product-table')[0];
+
+    if (!table) {
+      return console.log('Notificaciones de Stock: No se pudo agregar Observer para monitorear el agregado dínamico de nuevos productos');
+    }
+
+    observer.observe(table, {
+      childList: true
+    });
+  };
+
+  function injectButtonInProductFromProductList() {
+    var container = $(this);
+    var buttonContainers = {
+      'generic': '[data-store^="product-item-info"] a',
+      'bahia': '.item-description a'
+    };
+    var button = "<div class=\"notification-list-button ".concat(LS.theme.code, "\">").concat(storeConfig.buttonInProductListMessage, "</div>");
+
+    if (container.find('.notification-list-button').length > 0) {
+      return;
+    }
+
+    var stockAttribute = container.find('[data-store|="stock-product"][data-store$="-0"]');
+
+    if (stockAttribute.length > 0) {
+      if (LS.theme.code === 'amazonas') {
+        container.find('.item-actions a').first().html(storeConfig.buttonInProductListMessage);
+        container.find('.item-actions > div').first().attr('class', '');
+      } else if (LS.theme.code === 'new_linkedman') {
+        var productLink = container.find('[data-store^="product-item-info"] a').first();
+        var stockLabel = container.find('.js-stock-label').first();
+        stockLabel.html("<a href=\"".concat(productLink.attr('href'), "\">").concat(storeConfig.buttonInProductListMessage, "</a>"));
+      } else if (LS.theme.code === 'cubo') {
+        container.find('.item-actions span').first().html(storeConfig.buttonInProductListMessage);
+      } else {
+        var buttonContainer = container.find(buttonContainers[LS.theme.code] || buttonContainers['generic']).last();
+        buttonContainer.append(button);
+      }
+    }
+  }
+
+  var init = function init() {
+    if (typeof $ === 'undefined' || !$.fn || !$.fn.jquery) {
+      throw new Error('Notificaciones de Stock: No se pudo encontrar jQuery');
+    }
+
+    $.get("".concat(appUrl, "/api/stores/").concat(LS.store.id, "/?lang=").concat(LS.langCode)).done(function (response) {
+      storeConfig = response;
+
+      if (LS.product) {
+        injectNotificationRequestElement();
+      } else if (storeConfig.showButtonInProductList) {
+        initialButtonInProductListRender();
+      }
+    });
+  };
+
+  useJquery().then(function () {
+    return init();
+  });
+})(LS);

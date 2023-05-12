@@ -1,0 +1,2011 @@
+
+  // Flowy - Versión 1.0
+
+  // Obtener html del popup
+  
+  
+  let flowyPopupHTML = `<style>  .flowy-close-cross{
+  position: absolute;
+  top: 0.2em;
+  right: 0.3em;
+  font-size: 2.5em;
+  user-select: none;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+
+.flowy-flex-space-between{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flowy-popup-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+
+.flowy-popup {
+  font-family: "Montserrat", sans-serif;
+  width: 400px;
+  max-width: 95vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1.5em 3em 1em 3em;
+  z-index: 100000;
+  font-size: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.flowy-title {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.9em;
+  padding: 0.5em;
+  width: 100%;
+  background-color: #f05097;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color : #fff;
+  margin-bottom: 0.5em;
+}
+
+.flowy-name{
+  font-family: "Montserrat", sans-serif;
+  color : #7f7f7f;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.flowy-see-more{
+  font-size: 1em;
+  font-weight: 400;
+  color: blue;
+}
+.flowy-see-more:hover{
+  cursor: pointer;
+}
+
+.flowy-description {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  color : #7f7f7f;
+  padding-bottom: 10px;
+  line-break: auto;
+  margin-bottom: 0.5em;
+  max-width: 300px;
+}
+
+.prev{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.next{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.flowy-img-div{
+  display: block;
+  height: 300px;
+  position: relative;
+}
+
+.flowy-img-div > img{
+  max-width:100%;
+  height: 300px;
+  object-fit: contain;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  /*transition:all .3s;*/
+  display: block;
+}
+
+.arrow-icon-left{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0em;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+.arrow-icon-right{
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0em;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.arrow-left{
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  border: solid gray;
+  border-width: 0 0.4em 0.4em 0;
+  padding: 0.5em;
+  height: 0.3em;
+  width: 0.3em;
+  transform: rotate(135deg);
+  cursor: pointer;
+  animation-name: movimientoIzquierda;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.arrow-right{
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  border: solid gray;
+  border-width: 0 0.4em 0.4em 0;
+  padding: 0.5em;
+  height: 0.3em;
+  width: 0.3em;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  animation-name: movimientoDerecha;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes movimientoDerecha {
+  0%   {transform: translateX(0em) rotate(-45deg);}
+  12%  {transform: translateX(-0.1em) rotate(-45deg);}
+  25%  {transform: translateX(-0.2em) rotate(-45deg);}
+  37%  {transform: translateX(-0.1em) rotate(-45deg);}
+  50%  {transform: translateX(0em) rotate(-45deg);}
+  62%  {transform: translateX(0.1em) rotate(-45deg);}
+  75%  {transform: translateX(0.2em) rotate(-45deg);}
+  87%  {transform: translateX(0.1em) rotate(-45deg);}
+  100% {transform: translateX(0em) rotate(-45deg);}
+}
+@keyframes movimientoIzquierda {
+  0%   {transform: translateX(0em) rotate(135deg);}
+  12%  {transform: translateX(0.1em) rotate(135deg);}
+  25%  {transform: translateX(0.2em) rotate(135deg);}
+  37%  {transform: translateX(0.1em) rotate(135deg);}
+  50%  {transform: translateX(0em) rotate(135deg);}
+  62%  {transform: translateX(-0.1em) rotate(135deg);}
+  75%  {transform: translateX(-0.2em) rotate(135deg);}
+  87%  {transform: translateX(-0.1em) rotate(135deg);}
+  100% {transform: translateX(0em) rotate(135deg);}
+}
+.dot-list{
+  display: flex;
+  gap: 0.3em;
+  position: absolute;
+  bottom: 0.2em;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+}
+
+.single-dot{
+  width: 0.5em;
+  height: 0.5em;
+  border: 1px solid gray;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.active-dot{
+  background-color: gray;
+}
+
+.flowy-discount{
+  background-color: #000;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.flowy-discount:hover{
+  color: #fff;
+}
+
+.flowy-last-unit{
+  color: #f00;
+  font-weight: bolder;
+  font-size: 0.8em;
+  margin: auto;
+  margin-right: 0;
+}
+
+.flowy-last-unit:hover{
+  color: #f00;
+}
+
+.flowy-new-price{
+  color: #85b44a;
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.flowy-old-price {
+  font-size: 1em;
+  font-weight: 600;
+  display: inline;
+  color: #464646;
+}
+
+.flowy-price {
+  font-size: 1.3em;
+  color: #7f7f7f;
+}
+
+.price-holder, .product-price-container{
+  display: none;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flowy-saving{
+  color: #7f7f7f;
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin: 0.3em 0em;
+}
+
+.flowy-saving:hover{
+  color: #7f7f7f;
+}
+
+.flowy-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+
+.flowy-accept {
+  font-family: "Montserrat", sans-serif;
+  color : #7f7f7f;
+  font-weight: 600;
+  font-size: 1.5em;
+  background-color: #fcc21b;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 200px !important;
+  padding: 0em;
+  cursor: pointer;
+}
+
+.flowy-close-button{
+  cursor: pointer;
+  width: 300px;
+  font-size: 1.2em;
+  color: #7f7f7f;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.value-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 2.4em;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+.flowy-form{
+  width: 100%;
+}
+
+.flowy-bottom-form{
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-around;
+  height: 3.5em;
+}
+
+.flowy-input-number{
+  background: #fff !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 6.5em;
+  height: 3.5em;
+}
+
+#flowy-add-to-cart, #flowy-add-to-cart:focus, #flowy-add-to-cart:hover {
+  text-align: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  margin: 0px;
+  width: 1.8em;
+  height: 2em;
+  outline: none;
+  font-size: 1.8em;
+}
+
+#flowy-add-to-cart::-webkit-inner-spin-button,
+#flowy-add-to-cart::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.flowy-variants-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.div-select-label{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 90%;
+  align-items: center;
+}
+
+.label-variant{
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #353434;
+}
+
+form div select.flowy-variants {
+  border: 2px solid rgba(147, 147, 147, 0.25);
+}
+
+.flowy-variants, .flowy-variants:hover, .flowy-variants:focus{
+  margin: 0.3em 0.5em 0.5em 0;
+  width: 90%;
+  font-size: 1.5em;
+  padding: 0 0.5em;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  outline: none;
+  -webkit-appearance: none;
+  height: 2.2em;
+  background-color: #fff;
+}
+
+/* Creacion de flechas en selects */
+.div-select-label select{
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+}
+
+/* Elimino la fecha que por defecto aparece en el desplegable */
+.div-select-label select::-ms-expand {
+  display: none;
+}
+
+.div-select-label {
+  position: relative;
+}
+
+.div-select-label select {
+  display: inline-block;
+  cursor: pointer;
+  outline: 0; 
+  border: 0;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.div-select-label i{
+  position: absolute;
+  right: 15%;
+  top: calc(50% - 2px);
+  height: 12px;
+  width: 12px;
+  display: block;
+  border-left:3px solid #808080;
+  border-bottom:3px solid #808080;
+  transform: rotate(-45deg); /* Giramos el cuadrado */
+  transition: all 0.25s ease;
+  z-index: 1;
+  cursor: pointer;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.div-select-label:hover i{
+	margin-top: 3px;
+}
+
+/* Estilos para los marcos del popup */
+
+.empty-frame {
+  display: none;
+}
+
+.hotSale-frame {
+  transform: translate(0%, -7%);
+  max-width: 95vw;
+  height: 760px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.christmas-frame {
+  transform: translate(0%, -10.2%);
+  height: 710px;
+}
+
+.hotSale1-frame {
+  transform: translate(0%, 1%);
+  width: 465px;
+  height: 660px;
+}
+
+.imperdible-frame {
+  transform: translate(0%, -4%);
+  height: 715px;
+}
+
+@media screen and (max-width: 576px) {
+  .flowy-title {
+    font-size: 1.5em;
+  }
+  
+  .flowy-name{
+    font-size: 1.3em;
+  }
+
+  .flowy-img-div{
+    height: 250px;
+    max-width: 300px;
+  }
+  .flowy-img-div > img{
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .flowy-description {
+    display: none;
+  }
+
+  .flowy-img-div{
+    height: 225px;
+    max-width: 275px;
+  }
+  .flowy-img-div > img{
+    height: 225px;
+  }
+
+  .flowy-accept {
+    width: 150px !important;
+  }
+
+}
+@media screen and (max-width: 350px) {
+  .label-variant{
+    display: none;
+  }
+}
+@media screen and (max-width: 321px) {
+  .flowy-popup {
+    max-width: 95vw;
+  }
+
+  .flowy-title {
+    font-size: 1.4em;
+    padding: 8px 5px;
+  }
+
+  .flowy-name {
+    font-size: 1em;
+  }
+
+  .flowy-price {
+    font-size: 1.1em;
+  }
+  .div-select-label i {
+    top: calc(50% - 10px);
+  }
+
+  .flowy-input-number {
+    height: 3em;
+  }
+
+  .flowy-accept {
+    height: 30px;
+  }
+
+  .flowy-close-button {
+    font-size: 1em;
+  }
+
+  .flowy-img-div{
+    height: 200px;
+    max-width: 250px;
+  }
+  .flowy-img-div > img{
+    height: 200px;
+  }
+
+  .hotSale-frame {
+    height: 476px;
+  }
+  
+  .christmas-frame {
+    height: 515px;
+  }
+  
+  .hotSale1-frame {
+    max-width: 99vw;
+    height: 445px;
+  }
+  
+  .imperdible-frame {
+    height: 445px;
+  }
+}
+
+
+
+ </style><head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="src/pure-swipe.js"></script>
+  </head><div class="flowy-overlay"></div> <div class="js-product-container flowy-popup">
+    <div class="flowy-close-cross">+</div>
+    <h3 class="flowy-title"></h3>
+    <h6 class="flowy-description"></h6>
+    <h4 class="flowy-name"></h4>
+
+    <div class="js-product-slide js-product-featured-image flowy-left">
+        <!-- <a class="prev">&#10094;</a> onclick="plusSlides(-1)" -->
+        <div class="flowy-img-div">
+            <div class="arrow-icon-left">
+                <div class="arrow-left"></div>
+            </div>
+            <img
+                data-sizes="auto"
+                src="https://media.istockphoto.com/illustrations/plant-patchouli-or-pogostemon-cablini-branch-with-flowers-and-leaves-illustration-id1255893697"
+                data-srcset="//d2r9epyceweg5n.cloudfront.net/assets/stores/img/no-photo-480-0.png 480w, //d2r9epyceweg5n.cloudfront.net/assets/stores/img/no-photo-640-0.png 640w"
+                class="js-product-slide-img flowy-img"
+                sizes="250px"
+                srcset="
+                //d2r9epyceweg5n.cloudfront.net/assets/stores/img/no-photo-480-0.png 480w,
+                //d2r9epyceweg5n.cloudfront.net/assets/stores/img/no-photo-640-0.png 640w
+                "
+            />
+            <div class="arrow-icon-right">
+                <div class="arrow-right"></div>
+            </div>
+        </div>
+        <!-- <a class="next">&#10095;</a> onclick="plusSlides(1)" -->
+    </div>
+    <div class="flowy-flex-space-between">
+        <a class="flowy-last-unit"></a>
+    </div>
+    <div class="price-holder pull-left-xs full-width" data-store="product-price-82151983">
+        <div class="price product-price-container m-top-half text-left-xs m-bottom-xs m-bottom-half">
+            <span class="js-compare-price-display price-compare h4 p-right-quarter compare_price_display"></span>
+            <span class="price product-price js-price-display price_display"></span>
+        </div>
+    </div>
+    <div class="flowy-saving">
+        <div>
+            <p class="flowy-text-price"></p>
+            <del><i class="flowy-old-price">$600</i></del>
+            <b class="flowy-price" style="display: inline; margin-left: 0.3em;">$500</b>
+        </div>
+    </div>
+
+    <form class="flowy-form" method="post" action="/comprar/" onsubmit="return false">
+        <div class="flowy-bottom-form">
+            <div class="flowy-input-number" id="popup-web">
+                <div class="value-button" id="decrease" 
+                    onclick="
+                            let value = parseInt(document.getElementById('flowy-add-to-cart').value, 10);
+                            value = isNaN(value) ? 1 : value;
+                            value <= 1 ? value = 2 : '';
+                            value--;
+                            document.getElementById('flowy-add-to-cart').value = value;" 
+                            value="Decrease Value">-</div>
+                    <input type="hidden" name="add_to_cart" class="flowy-hidden-input"/>
+                    <input value="1" min="1" readonly="readonly" type="number" id="flowy-add-to-cart" name="quantity" class="flowy-quantity"/>
+                <div class="value-button" id="increase" 
+                    onclick="
+                        let value = parseInt(document.getElementById('flowy-add-to-cart').value, 10);
+                        let select = document.querySelector('.flowy-variants-maestro');
+                        let stock;
+                        let stockManagement;
+                        if(select){
+                            let options = select.options
+                            stock = options[options.selectedIndex].dataset.stock;
+                            stockManagement = options[options.selectedIndex].dataset.stockManagement;
+                        }
+                        let inputs = document.querySelector('.div-only-one-variant');
+                        if(inputs){
+                            stock = inputs.firstElementChild.dataset.stock;
+                            stockManagement = inputs.firstElementChild.dataset.stockManagement;
+                        }
+                        let input = document.querySelector('.sin-variantes');
+                        if(input){
+                            stock = input.dataset.stock;
+                            stockManagement = input.dataset.stockManagement;
+                        }
+                        value = isNaN(value) ? 0 : value;
+                        let noStockBoton = document.querySelector('.flowy-accept');
+                        if(!noStockBoton.classList.contains('no-aceptar')){
+                            if(stockManagement == 'false'){
+                                value++;
+                            }else{
+                                if(value < stock){
+                                    value++;
+                                } else{
+                                    value = stock;
+                                }
+                            }
+                        }
+                    document.getElementById('flowy-add-to-cart').value = value;" 
+                value="Increase Value">+</div>
+            </div>
+            <input class="js-addtocart flowy-accept" type="submit" value="AGREGAR AL CARRITO"/>
+        </div>
+    </form>
+    <div class="flowy-close-button">Ignorar oferta y seguir comprando</div>
+</div>
+
+
+
+
+
+
+
+`;
+
+  // Cargar onLoad
+  (function onLoad() {
+
+    console.log("SCRIPT CARGADO");
+
+    useJquery().then((jq) => {
+
+
+
+    // const whiteList = [1073722, 453505, 324065, 932966]
+    let hotSaleFrame = '';
+    let christmasFrame = '';
+    let ImperdibleFrame = '';
+    let hotSale1Frame = '';
+    let hotSale2Frame = '';
+    let hotSale3Frame = '';
+    christmasFrame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2Fnavidad%20png.png?alt=media&token=f9063cfc-3976-4caa-bfad-dafa9bf97ee1';
+    ImperdibleFrame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2Fimperdible%20png.png?alt=media&token=6bae16f6-85d5-414a-87c9-0051b60c535c';
+    if (((LS.country).trim()).toUpperCase() === 'BR') {
+        christmasFrame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2FPortuguese%2Fnatalsale-marco.png?alt=media&token=9c8727c1-b78a-4965-b471-0623a0b8ff91';
+        ImperdibleFrame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2FPortuguese%2FimperdvelNEW.png?alt=media&token=6558432d-379d-4f2d-b334-f95d2d85a95d';
+    }
+    hotSaleFrame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2Fhot%20sale%20png.png?alt=media&token=8d321a97-7d1f-4628-a8cb-fdde998dd0af';
+    hotSale1Frame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2FhotSale1.png?alt=media&token=43256914-d5ff-451a-b1de-20475f493eaf';
+    hotSale2Frame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2FhotSale2.png?alt=media&token=6a8fc9d2-540b-40e7-836f-b679a7933047';
+    hotSale3Frame = 'https://firebasestorage.googleapis.com/v0/b/flowy-dc2d9.appspot.com/o/Frames%2FhotSale3.png?alt=media&token=d8522367-5b4c-4862-a456-4fb942fd7fab';
+
+    //console.log('¡Utilizamos flowy para incrementar nuestras ventas entre un 10 y 30%! Para mas informacion visitanos en https://flowy.website/');
+    let i = 0;
+
+    const carritoHtml = document.getElementsByClassName("js-ajax-cart-panel");
+    const carrito = carritoHtml[0];
+    const contenedorBotonCheckout = carrito?.querySelector('.js-ajax-cart-submit');
+    let botonCheckout = carrito?.querySelector('input[type="submit"]');
+    let buttonCheckoutHTMLOut = botonCheckout?.outerHTML;
+    if (carritoHtml[1]) {
+        const carrito2 = carritoHtml[1];
+        const contenedorBotonCheckout = carrito2.querySelector('.js-ajax-cart-submit');
+        let botonCheckout = carrito2.querySelector('input[type="submit"]');
+        let buttonCheckoutHTMLOut = botonCheckout?.outerHTML;
+        botonCheckout.addEventListener('click', async function (event) {
+            let items = getProductIdFromCartItems(); //Leer todos los elementos en el carrito y generar los items
+            if (items.length > 0) { //Si no hay items en el carrito, no tiene sentido buscar el subtotal ni matches
+                event.preventDefault();
+                let eCartItems = items;
+                let subtotal = getSubtotalFromCart(); //Para chequear el rango de precios
+                let typeOffer = 'antesCheckout';
+                ////console.log(eCartItems);
+                ////console.log(subtotal);
+                try {
+                    let match = await checkForMatches(items, eCartItems, typeOffer, subtotal);
+                    if (!match) {
+                        goToCheckout();
+                    }
+                } catch (e) {
+                    //console.log(e);
+                    goToCheckout();
+                }
+            }
+        });
+    }
+    botonCheckout?.addEventListener('click', async function (event) {
+        let items = getProductIdFromCartItems(); //Leer todos los elementos en el carrito y generar los items
+        if (items.length > 0) { //Si no hay items en el carrito, no tiene sentido buscar el subtotal ni matches
+            event.preventDefault();
+            let eCartItems = items;
+            let subtotal = getSubtotalFromCart(); //Para chequear el rango de precios
+            let typeOffer = 'antesCheckout';
+            ////console.log(eCartItems);
+            ////console.log(subtotal);
+            try {
+                let match = await checkForMatches(items, eCartItems, typeOffer, subtotal);
+                if (!match) {
+                    goToCheckout();
+                }
+            } catch (e) {
+                //console.log(e);
+                goToCheckout();
+            }
+        }
+    });
+    //Ahora veamos ofertas al Agregar al Carrito
+    if (LS.product) { //Producto agregado desde su pagina, en este contexto si existe LS.product y LS.variants
+        let variant;
+        let variantExist = typeof LS.variants !== "undefined" && LS.variants.length > 0;
+        if (variantExist) variant = LS.variants[0];
+        LS.registerOnChangeVariant((v) => (variant = v));
+
+        LS.on("productAddedToCart", function (e) {
+            let quantityInput = parseInt(document.querySelector("input[name='quantity']")?.value);
+            let quantity = (quantityInput > 0) ? quantityInput : 1;
+            if (i != 0) return;
+            let eCartItems = getProductIdFromCartItems();
+            let item = {
+                product_id: parseInt(LS.product.id),
+                variant_id: variant.id,
+                quantity: quantity,
+                shooter_price: variant.price_number,
+            };
+            eCartItems = eCartItems.filter((eItem) => eItem.product_id != item.product_id);
+            let subtotal = getSubtotalFromCart();
+            let typeOffer = 'agregarCarrito';
+            ////console.log(item);
+            ////console.log(subtotal);
+            ////console.log(eCartItems);
+            checkForMatches([item], eCartItems, typeOffer, subtotal);
+        });
+    }
+    else {//Producto agregado fuera de su pagina, en landing u seccion similar. En este contexto no existe LS.product
+        //PROCESO PARA QUITAR JQUERY Y FUNCIONALIDAD DEL MISMO
+        let inputsCart = [...document.getElementsByClassName('js-addtocart')];
+        // $(".js-addtocart").on("click", function (e) {
+        inputsCart.forEach(element => {
+            element.addEventListener("click", function (e) {
+                let form = this.closest('form');
+                let shooter_price;
+                let quantity;
+                let variant_id = 0;
+                let variantName;
+                let nameQuantity = document.querySelector("#quickshop-form")?.querySelector("[name='quantity']");
+                // if(document.querySelector("#quickshop-form")?.querySelector("[name='quantity']")){// si tiene variantes en la landing page con el quickshop
+                if (nameQuantity) {// si tiene variantes en la landing page con el quickshop
+                    form = document.querySelector("#quickshop-form");
+                    quantity = parseInt(form.querySelector("[name='quantity']").value);
+                    let variantSelected = form.querySelectorAll("select > option:checked");
+                    variantName = '';
+                    for (variant of variantSelected) {
+                        variantName += (' ' + variant.value)
+                    }
+                    variantName = variantName.substring(1);
+                    let shooterPrice = form.parentElement.querySelector('.js-price-display');
+                    if (!shooterPrice) {
+                        shooterPrice = form.parentElement.parentElement.querySelector('.js-price-display');
+                    }
+                    let parsedPricePre = shooterPrice.innerHTML.replace(/^\D+/g, '');
+                    let parsedPrice = parsedPricePre.replaceAll(".", "").replaceAll(",", ".");
+                    shooter_price = parseFloat(parsedPrice);
+                } else if (document.querySelector('.item-buy')) {/* caso theme @Amazonas ('fenicio')*/
+                    let itemS = this.closest('.item');
+                    let shooterPrice = itemS.querySelector('.js-price-display');
+                    let parsedPricePre = shooterPrice.innerHTML.replace(/^\D+/g, '');
+                    let parsedPrice = parsedPricePre.replaceAll(".", "").replaceAll(",", ".");
+                    shooter_price = parseFloat(parsedPrice);
+                    quantity = 1;
+                    let variantSelected = form.querySelectorAll("select > option:checked");
+                    variantName = '';
+                    for (variant of variantSelected) {
+                        variantName += (' ' + variant.value)
+                    }
+                    variantName = variantName.substring(1);
+                } else { // si es product de la landing page sin ninguna ventana emergente, sin quantity input
+                    quantity = 1;
+                    variantName = 'sinVariantes';
+                    let itemContainer = form.closest('.item')
+                    let shooterPrice = itemContainer.querySelector(".js-price-display");
+                    if (shooterPrice) {
+                        let parsedPricePre = shooterPrice.innerHTML.replace(/^\D+/g, '');
+                        let parsedPrice = parsedPricePre.replaceAll(".", "").replaceAll(",", ".");
+                        shooter_price = parseFloat(parsedPrice);
+                    } else {
+                        shooter_price = parseFloat(itemContainer.querySelector('.item-price').attributes.content.textContent);
+                    }
+                }
+                let addToCart = form.querySelector("input[name='add_to_cart']"); //Revisar
+                let productId = addToCart.getAttribute("value");
+                let eCartItems = getProductIdFromCartItems();
+                let item = {
+                    product_id: productId,
+                    shooter_price: shooter_price,
+                    quantity: quantity,
+                    variant_id: variant_id,
+                    variant_name: variantName,
+                };
+                eCartItems = eCartItems.filter((eItem) => eItem.product_id != item.product_id);
+                let typeOffer = 'agregarCarrito';
+                let subtotal = getSubtotalFromCart() + shooter_price * quantity;
+                ////console.log(item);
+                ////console.log(subtotal);
+                ////console.log(eCartItems);
+                checkForMatches([item], eCartItems, typeOffer, subtotal);
+            });
+        });
+    }
+
+    //----Fin de la ejecucion -- De aca para abajo solo hay funciones que son invocadas en casos particulares
+    //---Funciones asociadas al carrito
+    //Funcion para obtener todos los productos en el carrito
+    function getProductIdFromCartItems() {
+        let items = [];
+        let cartItems = document.getElementsByClassName("js-cart-item");
+        for (let i = 0; i < cartItems.length; i++) {
+            let cartItem = cartItems[i];
+            let product_id, quantity, shooter_price, variant_id, urlShooter, urlShooterProduct;
+            if (cartItem.dataset.store) {
+                product_id = cartItem.dataset.store.match(/(\d+)/);
+                product_id = parseInt(product_id[0]);
+                quantity = parseInt(cartItem.querySelector(".js-cart-quantity-input").value);
+                let shooter_price_Total = parseFloat(cartItem.querySelector(".js-cart-item-subtotal").innerText.substring(1).replaceAll(".", "").replaceAll(",", "."));
+                shooter_price = parseFloat(shooter_price_Total / quantity);
+                urlShooter = cartItem.querySelector(".cart-item-name a") ? cartItem.querySelector(".cart-item-name a")?.href : cartItem.querySelector(".cart-item-name")?.href;
+                if (!urlShooter) {
+                    urlShooter = cartItem.querySelector(".cart-item a") ? cartItem.querySelector(".cart-item a").href : cartItem.querySelector(".cart-item").href;
+                }
+                variant_id = parseFloat(urlShooter.substring(urlShooter.indexOf('=') + 1));
+            } else {
+                product_id = 0;
+                quantity = parseInt(cartItem.querySelector('input[type="number"]').value);
+                urlShooter = cartItem.querySelector(".cart-item-name a") ? cartItem.querySelector(".cart-item-name a").href : cartItem.querySelector(".cart-item-name").href;
+                variant_id = parseFloat(urlShooter.substring(urlShooter.indexOf('=') + 1));
+                shooter_price = parseFloat(cartItem.querySelector(".js-cart-item-subtotal").innerText.substring(1).replaceAll(".", "").replaceAll(",", "."));
+            }
+            urlShooterProduct = urlShooter.split('?')[0];
+            let item = {
+                product_id: product_id,
+                variant_id: variant_id,
+                quantity: quantity,
+                shooter_price: shooter_price,
+                urlShooterProduct,
+            }
+            items.push(item);
+        }
+        return items;
+    }
+
+    //Funcion para obtener el subtotal del carrito
+    // function getSubtotalFromCart() {
+    //     let subtotalHTML;
+    //     const addToCartForms = document.querySelector("form.js-ajax-cart-panel");
+    //     subtotalHTML = addToCartForms.querySelector(".js-cart-total") ?? addToCartForms.querySelector(".js-cart-subtotal");
+    //     if(!subtotalHTML) {
+    //
+    //     }
+    //     return parseFloat(subtotalHTML.innerText.substring(1).replaceAll(".", "").replaceAll(",", "."));
+    // }
+
+    function getSubtotalFromCart() {
+        let subtotalHTML = null;
+        const addToCartForms = [...document.querySelectorAll("form.js-ajax-cart-panel")];
+        addToCartForms.forEach(item => {
+            if(item.querySelector(".js-cart-total")) {
+                subtotalHTML = item.querySelector(".js-cart-total")
+            }
+        })
+        if(!subtotalHTML) {
+            addToCartForms.forEach(item => {
+                if(item.querySelector(".js-cart-subtotal")) {
+                    subtotalHTML = item.querySelector(".js-cart-subtotal")
+                }
+            })
+        }
+        return parseFloat(subtotalHTML.innerText.substring(LS.currency.display_short.length).replaceAll(".", "").replaceAll(",", "."));
+    }
+
+    //Funcion para remover un producto del carrito
+    function removeItem(item, flag) {
+        let productId;
+        if (LS.product) {
+            if (flag) {
+                productId = LS.product.id;
+            } else { productId = item.product_id; }
+        } else {
+            productId = item.product_id;
+        }
+
+        //JQUERY
+        // let products = $(".js-cart-item");
+        let products = [...document.getElementsByClassName('js-cart-item')];
+        products.forEach(prod => {
+            let deleteId = prod.dataset.itemId;
+            let cartProductId = prod.dataset.store;
+            if (cartProductId.includes(productId)) {
+                setTimeout(() =>{
+                    LS.removeItem(deleteId, true);
+                }, [1000])
+            }
+        });
+        // for (let i = 0; i < products.length; i++) {
+        //     let deleteId = products[i].dataset.itemId;
+        //     let cartProductId = products[i].dataset.store;
+        //     if (cartProductId.includes(productId)) {
+        //         setTimeout(() =>{
+        //             LS.removeItem(deleteId, true);
+        //         }, [1000])
+        //     }
+        // }
+    }
+
+    //---Funciones asociadas a las ofertas
+    //Funcion para chequear si se debe mostrar una oferta
+    async function checkForMatches(items, eCartItems, typeOffer, subtotal) {
+        let resOffer;
+        const info = {
+            items: items,
+            eCartItems: eCartItems,
+            typeOffer: typeOffer,
+            subtotal: subtotal,
+        }
+        resOffer = await pedidoFetch(info);
+        return resOffer;
+    }
+
+    async function pedidoFetch(info) {
+        // const url = whiteList.includes(LS.store.id) ? `https://check-offers-up-cross-yvkptqz7ga-uc.a.run.app/api/v2/offers/${LS.store.id}` : `https://check-offers-up-cross-yvkptqz7ga-uc.a.run.app/api/offers/${LS.store.id}`;
+        const url = `https://check-offers-up-cross-yvkptqz7ga-uc.a.run.app/api/v2/offers/${LS.store.id}`
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(info)
+        });
+        const content = await response.json();
+        if (content.matchedOffers == null || content.matchedOffers.length == 0 || content.matchedOffers == undefined) {
+            return null;
+        } else {
+            showPopup(content.matchedOffers);
+            return content.matchedOffers;
+        }
+    }
+
+    /**
+     * Va a darle forma al popup
+     * @param {*} offer es todo el producto con sus datos
+     * @param {*} keys es un arreglo donde se encuentra que claves (atributos) tienen las variantes targets. Pueden ser 1, 2, 3 o ninguna
+     */
+    //---Funciones asociadas al pop-up
+    //Funcion para mostrar el pop-up
+    function showPopup(offer) {
+
+        if (offer.targets.length == 0) {
+            ////console.log(offer)
+            return false;
+        }
+        if (typeof ga !== 'undefined') {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Flowy-CrossUp',
+                eventAction: 'Visualizaciones',
+                eventValue: 1,
+                eventLabel: 'Visualizaciones de pop-up',
+            })
+        }
+        // Crear popup con el HTML de popupHTML
+        let popup = document.createElement("div");
+        popup.setAttribute("id", "flowy-popup-div");
+        i++;
+        ////console.log(offer);
+        // Tomar los colores de la oferta
+        // Color1 = "Boton y borde"
+        let colorBotonBorde = offer.esthetic.colors[0];
+
+        // Color2 = "Fondo"
+        let colorFondo = offer.esthetic.colors[1];
+
+        // Color3 = "Fuentes"
+        let colorFuentes = offer.esthetic.colors[2];
+
+        // Color4 = "Fuente del boton aceptar"
+        let colorFuenteAceptar = offer.esthetic.colors[3];
+
+        popup.innerHTML = flowyPopupHTML.trim();
+
+        // Buscar los elementos que van a mostrar los datos de la oferta
+        let flowyPopup = popup.querySelector(".flowy-popup");
+        let title = popup.querySelector(".flowy-title");
+        let description = popup.querySelector(".flowy-description");
+        let productName = popup.querySelector(".flowy-name");
+        let image = popup.querySelector(".flowy-img");
+        let idInput = popup.querySelector(".flowy-hidden-input");
+        //let variantInput = popup.querySelector(".flowy-variant-input");
+        let buttonAccept = popup.querySelector(".flowy-accept");
+        let buttonClose = popup.querySelector(".flowy-close-button");
+        let crossClose = popup.querySelector(".flowy-close-cross");
+        let overlay = popup.querySelector(".flowy-overlay");
+        let textPrice = popup.querySelector(".flowy-text-price");
+        let oldPrice = popup.querySelector(".flowy-old-price");
+        let price = popup.querySelector(".flowy-price");
+        //let select = popup.querySelector(".flowy-variants");
+        //let oldPrice = popup.querySelector(".flowy-old-price");
+        //let newPrice = popup.querySelector(".flowy-new-price");
+        //let priceDiff = popup.querySelector(".flowy-price-diff");
+        //let discount = popup.querySelector(".flowy-discount");
+        let saving = popup.querySelector(".flowy-saving");
+        let quantity = popup.querySelector(".flowy-quantity");
+        let form = jq(".flowy-form");
+
+        let seeMore;
+
+        // Agregar colores
+        buttonAccept.style = "background-color: " + colorBotonBorde + "; color: " + colorFuenteAceptar + ";";
+        //log("Button accept --> ", buttonAccept);
+        flowyPopup.style = "background-color: " + colorFondo + "; border: 2px solid" + colorBotonBorde + ";";
+        productName.style = "color: " + colorFuentes;
+        description.style = "color: " + colorFuentes;
+        title.style = "word-wrap:break-word" + "; color: " + colorFuenteAceptar + "; background-color: " + colorBotonBorde + ";";
+        buttonClose.style = "color: " + colorFuentes;
+        price.style = "color: " + colorFuentes;
+
+        // buttonAccept.disabled = true;
+
+        /* Obtengo el idioma principal de la tienda */
+
+        let lenguaje = LS.lang.split("_");
+        let idioma = lenguaje[0];
+
+
+        let product = offer.targets[0];
+        title.innerHTML = offer.title;
+        productName.innerHTML = product.name[idioma];
+
+        if (!offer.buttonIgnore) {
+            offer.buttonIgnore = "Ignorar oferta y seguir comprando";
+        } else {
+            buttonClose.innerHTML = offer.buttonIgnore;
+        }
+
+        if (productName.innerHTML.length > 100) {
+            productName.innerHTML = productName.innerHTML.substring(0, 100);
+        }
+
+        if (offer.showingPlace == 'cart' && LS.cart.id) {
+            seeMore = document.createElement('span');
+            seeMore.classList = 'flowy-see-more';
+            seeMore.innerText = (LS.country).trim().toUpperCase() === 'BR' ? '...Ver mais' : '...Ver más';
+            productName.appendChild(seeMore);
+        }
+
+        description.innerHTML = offer.description;
+
+        if (offer?.hasframe) {
+            // let frame = document.createElement("img");
+            let frame = new Image();
+            switch (offer.frameclass.class) {
+                case "hotSale-frame":
+                    frame.src = hotSaleFrame;
+                    break;
+                case "christmas-frame":
+                    frame.src = christmasFrame;
+                    break;
+                case "imperdible-frame":
+                    frame.src = ImperdibleFrame;
+                    break;
+                case "hotSale1-frame":
+                    frame.src = hotSale1Frame;
+                    break;
+                case "hotSale2-frame":
+                    frame.src = hotSale2Frame;
+                    break;
+                case "hotSale3-frame":
+                    frame.src = hotSale3Frame;
+                    break;
+                case "hotSale4-frame":
+                    frame.src = hotSale4Frame;
+                    break;
+                case "hotSale5-frame":
+                    frame.src = hotSale5Frame;
+                    break;
+                case "hotSale6-frame":
+                    frame.src = hotSale6Frame;
+                    break;
+
+            }
+            if (frame.src) {
+                frame.style.position = "absolute";
+                frame.classList = offer.frameclass.class;
+                frame.style.pointerEvents = "none";
+                frame.setAttribute("id", "frame-popup");
+                frame.setAttribute("loading", "lazy");
+                flowyPopup.appendChild(frame);
+                let nameProduct = offer.targets[0].name[idioma].length;
+                let lengthDescription = offer.description.length;
+
+                if (offer.targets[0].variants.length > 1) {
+                    switch (offer.frameclass.class) {
+                        case "hotSale-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "120%";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.width = "98vw";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.maxWidth = "420px";
+                            } else {
+                                flowyPopup.style.top = "53%"
+                                frame.style.maxWidth = "420px";
+                            }
+                            break;
+                        case "christmas-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "128%";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.width = "98vw";
+                                frame.style.height = "129%";
+                                flowyPopup.style.top = "56%";
+                                frame.style.maxWidth = "420px";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                flowyPopup.style.top = "53%";
+                                frame.style.maxWidth = "420px";
+                            } else {
+                                flowyPopup.style.top = "53%";
+                                frame.style.maxWidth = "420px";
+                            }
+                            break;
+                        case "imperdible-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "113%";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.height = "113%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                flowyPopup.style.top = "53%";
+                                frame.style.width = "98vw";
+                                frame.style.maxWidth = "420px";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.maxWidth = "420px";
+                            } else {
+                                frame.style.maxWidth = "420px";
+                                flowyPopup.style.top = "53%"
+                            }
+                            break;
+                        case "hotSale1-frame":
+                            frame.style.maxWidth = "420px";
+                            frame.style.height = "113%";
+                            frame.style.width = "98vw";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                frame.style.top = "-3rem";
+                                frame.style.height = "112%";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.top = "-2.8rem";
+                                flowyPopup.style.top = "56%";
+                                frame.style.height = "111%";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.top = "-4rem";
+                                frame.style.height = "112.5%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.top = "-4rem";
+                            } else {
+                                frame.style.top = "-4.5rem";
+                                flowyPopup.style.top = "53%";
+                            }
+                            break;
+                        default:
+                            frame.style.maxWidth = "420px";
+                            frame.style.width = "98vw";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.top = "-2.4rem";
+                                frame.style.height = "110%";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.top = "-2.4rem";
+                                flowyPopup.style.top = "56%";
+                                frame.style.height = "110%";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.top = "-3.5rem";
+                                frame.style.height = "112.5%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.top = "-3.4rem";
+                                frame.style.height = "112%";
+                            } else {
+                                flowyPopup.style.top = "53%";
+                                frame.style.top = "-3.7rem";
+                                frame.style.height = "112%";
+                            }
+                            break;
+                    }
+                } else {
+                    switch (offer.frameclass.class) {
+                        case "hotSale-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "120%";
+                            if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.width = "98vw";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.width = "95vw";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.width = "96vw";
+                                frame.style.maxWidth = "420px";
+                            } else {
+                                frame.style.width = "95vw";
+                                flowyPopup.style.top = "53%";
+                                frame.style.maxWidth = "420px";
+                            }
+                            break;
+                        case "christmas-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "128%";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.width = "98vw";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.width = "95vw";
+                                frame.style.maxWidth = "420px";
+                            } else {
+                                frame.style.width = "95vw";
+                                flowyPopup.style.top = "53%";
+                                frame.style.maxWidth = "420px";
+                            }
+                            break;
+                        case "imperdible-frame":
+                            frame.style.maxWidth = "500px";
+                            frame.style.height = "113%";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                frame.style.width = "98vw";
+                                frame.style.height = "112%";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.width = "98vw";
+                                frame.style.height = "112%";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.width = "98vw";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.maxWidth = "420px";
+                                frame.style.width = "95vw";
+                            } else {
+                                frame.style.maxWidth = "420px";
+                                flowyPopup.style.top = "53%";
+                                frame.style.width = "95vw";
+                            }
+                            break;
+                        case "hotSale1-frame":
+                            frame.style.maxWidth = "420px";
+                            frame.style.height = "113%";
+                            frame.style.width = "98vw";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.top = "-2.8rem";
+                                frame.style.height = "112%";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.top = "-2.8rem";
+                                frame.style.height = "112%";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                flowyPopup.style.top = "56%";
+                                frame.style.height = "112%";
+                                frame.style.top = "-3.6rem";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.top = "-3.75rem";
+                            } else {
+                                frame.style.height = "112%";
+                                frame.style.top = "-4rem";
+                            }
+                            break;
+                        default:
+                            frame.style.maxWidth = "420px";
+                            frame.style.height = "113%";
+                            frame.style.width = "98vw";
+                            if (window.matchMedia("(max-width: 280px)").matches) {
+                                frame.style.top = "-2.45rem";
+                                frame.style.height = "112%";
+                            } else if (window.matchMedia("(max-width: 321px)").matches) {
+                                frame.style.top = "-2.7rem";
+                            } else if (window.matchMedia("(max-width: 376px)").matches) {
+                                frame.style.top = "-3.4rem";
+                                flowyPopup.style.top = "56%";
+                            } else if (window.matchMedia("(max-width: 576px)").matches) {
+                                frame.style.top = "-3rem";
+                                frame.style.height = "112%";
+                            } else {
+                                frame.style.top = "-3.65rem";
+                                flowyPopup.style.top = "53%";
+                                frame.style.height = "113%";
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+        let signPrice = '$';
+        textPrice.innerHTML = 'Precio '
+        if ((LS.country).trim().toUpperCase() === 'BR') {
+            signPrice = 'R$';
+            textPrice.innerHTML = 'Preço '
+        }
+        if (product.variants) {
+            if (product.variants[0].promotional_price) {
+                price.innerHTML = `${signPrice}` + product.variants[0].promotional_price;
+                if (product.variants[0].price !== null) {
+                    oldPrice.innerHTML = `${signPrice}` + product.variants[0].price;
+                    textPrice.style.display = "none";
+                } else {
+                    textPrice.style.display = "inline-block";
+                    oldPrice.style.display = "none";
+                }
+            } else {
+                price.innerHTML = `${signPrice}` + product.variants[0].price;
+                textPrice.style.display = "inline-block";
+                oldPrice.style.display = "none";
+            }
+            ////console.log(product.variants);
+            if (product.variants.length > 1) {
+                let variantContainer = document.createElement("div");
+                variantContainer.classList = "flowy-variants-container";
+                variantContainer.setAttribute('id', 'flowy-container-options');
+                //Creo un select maestro, oculto
+                let select = document.createElement("select");
+                select.classList = "flowy-variants-maestro";
+                //select.name = "variation[0]";
+                for (let j = 0; j < Object.keys(product.variants[0].attr).length; j++) {
+                    //Div que contiene label y select
+                    let divSelectLabel = document.createElement('div');
+                    divSelectLabel.classList = 'div-select-label';
+                    // Agrego i para la creacion de la flecha en select
+                    let li = document.createElement("i");
+                    divSelectLabel.appendChild(li);
+                    //Label correspondiente al select j-esimo
+                    let labelVisible = document.createElement('label');
+                    labelVisible.classList = 'label-variant';
+                    labelVisible.style = "color: " + colorFuentes;
+                    //Select del tipo de variedad j-esima
+                    let selectVisible = document.createElement("select");
+                    selectVisible.classList = "flowy-variants";
+                    let idSelect = 'select' + j;
+                    selectVisible.setAttribute("id", idSelect);
+                    selectVisible.name = "variation[" + j + "]";
+                    labelVisible.setAttribute('for', idSelect);
+                    labelVisible.innerHTML = Object.keys(product.variants[0].attr)[j];
+                    let optionsThisVariant = [];
+                    // Creo el Option que dice seleccionar
+                    let selectOption = document.createElement("option");
+                    selectOption.setAttribute("value", "seleccionar");
+                    // selectOption.setAttribute("disabled", "true");
+                    selectOption.setAttribute("selected", "true");
+                    selectOption.setAttribute("disabled", "true");
+                    selectOption.innerHTML = "Seleccionar..";
+                    selectVisible.appendChild(selectOption);
+
+                    for (let i = 0; i < product.variants.length; i++) {
+                        //Armamos primero los selectores visuales
+                        let variantVisible = product.variants[i];
+                        if (!optionsThisVariant.includes(variantVisible.attr[Object.keys(variantVisible.attr)[j]])) {
+                            optionsThisVariant.push(variantVisible.attr[Object.keys(variantVisible.attr)[j]]);
+                            let option = document.createElement("option");
+                            option.setAttribute("value", variantVisible.attr[Object.keys(variantVisible.attr)[j]]);
+                            option.innerHTML = variantVisible.attr[Object.keys(variantVisible.attr)[j]];
+                            selectVisible.appendChild(option);
+                        }
+                        if (j === 0) {
+                            //Creo ahora el selector maestro oculto, que es el que se envia
+                            let option = document.createElement("option");
+                            option.setAttribute("value", variantVisible.value);
+                            option.innerHTML = variantVisible.value; //Por fines visuales
+                            if (variantVisible.promotional_price) {
+                                option.dataset.price = Math.round(parseFloat(variantVisible.promotional_price));
+                            } else {
+                                option.dataset.price = Math.round(parseFloat(variantVisible.price));
+                            }
+                            option.dataset.stock = variantVisible.stock;
+                            option.dataset.stockManagement = variantVisible.stock_management;
+                            select.appendChild(option);
+                        }
+                    }
+                    selectVisible.addEventListener("change", (e) => changePrice(offer));
+                    divSelectLabel.appendChild(labelVisible);
+                    divSelectLabel.appendChild(selectVisible);
+                    variantContainer.appendChild(divSelectLabel);
+                }
+                select.setAttribute('previousPrice', Math.round(parseFloat(offer.item.shooter_price)));
+                select.setAttribute('Strategy', offer.strategy);
+                select.style.display = 'none';
+                variantContainer.appendChild(select);
+                let div = popup.querySelector('.flowy-bottom-form');
+                div.before(variantContainer);
+
+            } else {
+                let variant = product.variants[0];
+                if (variant.value != undefined && variant.value != "") {
+                    productName.innerHTML += "(" + variant.value + ")";
+                    let divInput = document.createElement('div');
+                    divInput.style.display = 'none';
+                    divInput.classList = 'div-only-one-variant';
+                    for (let j = 0; j < Object.keys(variant.attr).length; j++) {
+                        let input = document.createElement("input");
+                        let nombreInput = "variation[" + j + "]";
+                        input.setAttribute("name", nombreInput);
+                        let valorInput = variant.attr[Object.keys(variant.attr)[j]];
+                        input.setAttribute("value", valorInput);
+                        let idInput = 'input' + j;
+                        input.setAttribute("id", idInput);
+                        input.style.display = "none";
+                        if (j == 0) {
+                            if (variant.promotional_price) {
+                                input.dataset.price = Math.round(parseFloat(variant.promotional_price));
+                            } else {
+                                input.dataset.price = Math.round(parseFloat(variant.price));
+                            }
+                            input.dataset.stock = variant.stock;
+                            input.dataset.stockManagement = variant.stock_management;
+                        }
+                        divInput.appendChild(input);
+                    }
+                    let divForm = popup.querySelector('.flowy-bottom-form');
+                    divForm.before(divInput);
+                } else {
+                    let input = document.createElement("input");
+                    input.setAttribute("name", 'variation[0]');
+                    input.classList.add('sin-variantes');
+                    if (variant.promotional_price) {
+                        input.dataset.price = Math.round(parseFloat(variant.promotional_price));
+                    } else {
+                        input.dataset.price = Math.round(parseFloat(variant.price));
+                    }
+                    input.dataset.stock = variant.stock;
+                    input.dataset.stockManagement = variant.stock_management;
+                    input.type = "hidden";
+                    quantity.after(input);
+                }
+            }
+        }
+
+        if (offer.strategy == "UPSELLING") { //Particularidades del upselling: price y cantidad
+
+            let priceHTML = price.innerHTML.substring(1);
+
+            if (priceHTML.includes("$")) {
+                priceHTML = priceHTML.split("$")[1];
+            }
+
+            let flowyPrice = Math.round(parseFloat(priceHTML)) - Math.round(parseFloat(offer.item.shooter_price)); // Precio target
+
+            if ((LS.country).trim().toUpperCase() === 'BR') {
+                saving.innerHTML = 'Leve por apenas ' + `<b class='flowy-price'>R$` + (flowyPrice).toString() + `</b>` + ' mais';
+            } else {
+                saving.innerHTML = 'Llevalo agregando: ' + `<b class='flowy-price'>$` + (flowyPrice).toString() + `</b>`;
+            }
+
+            saving.style = "color: " + colorFuentes;
+            if (!offer.buttonText) buttonAccept.value = "MEJORAR";
+            quantity.min = offer.item.quantity; //Modificar, porque no esta funcionando esta linea, deja elegir menos del min
+            quantity.value = offer.item.quantity;
+        }
+
+        if (offer.buttonText) buttonAccept.value = offer.buttonText.toUpperCase();
+
+        //Aca tenemos que agregar esto al evento, para que lo haga para cualquier variedad elegida.
+        let variant = product.variants[0];
+        if (offer.modifyAmount) {
+            quantity.type = "number";
+            quantity.max = variant.stock;
+            //De aca para arriba hay que agregar en evento
+        } else {
+            quantity.type = "hidden";
+            popup.querySelector('.flowy-input-number').style = "display: none;";
+            popup.querySelector('.flowy-bottom-form').style = "justify-content: center;";
+            popup.querySelector('.flowy-accept').style = "background-color: " + colorBotonBorde + "; color: " + colorFuenteAceptar + ";" + "width: 100% !important;";
+        }
+        //Agrega el product.id al formulario
+        form.attr("data-store", "product-form-" + product.id);
+        idInput.value = product.id;
+
+        if (product.images.length > 0) {
+            let firstImage = product.images[0].src.slice(6);
+            // let secondImage = (product.images[1]) ? product.images[1].src.slice(6) : firstImage;
+            let srcset = `${firstImage} 480w, ${firstImage} 640w`;
+            image.srcset = srcset;
+            image.style.display = 'block';
+        }
+
+        if (product.images.length > 1) {
+            let imageDiv = popup.querySelector(".flowy-img-div");
+            let arrowLeft = popup.querySelector('.arrow-icon-left');
+            let arrowRight = popup.querySelector('.arrow-icon-right');
+            setTimeout(function () {
+                arrowLeft.style.display = 'inline-block';
+                arrowRight.style.display = 'inline-block';
+                arrowLeft.addEventListener('click', (e) => changeSlide('left', product.images));
+                arrowRight.addEventListener('click', (e) => changeSlide('right', product.images));
+            }, 3000)
+            let dotsList = document.createElement('ol');
+            dotsList.classList.add('dot-list');
+            for (let i = 0; i < product.images.length; i++) {
+                let li = document.createElement('li');
+                li.classList.add('single-dot')
+                if (i == 0) {
+                    li.classList.add('active-dot');
+                }
+                li.addEventListener('click', (e) => changeSlideFromDot(i, product.images));
+                dotsList.appendChild(li);
+                if (i > 0) {
+                    let imageI = document.createElement('img');
+                    imageI.classList.add('flowy-img');
+                    imageI.style.display = 'none';
+                    let srcImg = product.images[i].src.slice(6);
+                    let srcset = `${srcImg} 480w, ${srcImg} 640w`;
+                    imageI.srcset = srcset;
+                    imageDiv.appendChild(imageI);
+                }
+            }
+            imageDiv.appendChild(dotsList);
+        }
+
+        buttonAccept.addEventListener("click", async (e) => {
+            checkSeleccionar();
+            // Eventos de los botones
+            if (!buttonAccept.classList.contains('no-aceptar')) {
+                try {
+                    await onAccept(offer);
+                } catch (e) {
+                    //console.log("Error realizando agregado al carrito: ", e);
+                }
+            }
+
+        });
+        buttonClose.addEventListener("click", (e) => closePopup(offer, false));
+        crossClose.addEventListener("click", (e) => closePopup(offer, false));
+        overlay.addEventListener("click", (e) => closePopup(offer, false));
+
+        if (offer.showingPlace == 'cart' && LS.cart.id) {
+            seeMore.addEventListener("click", (e) => seeMoreProduct(offer));
+        }
+
+        // Agregar popup a la tienda
+        let cartHtml = document.getElementsByClassName("js-ajax-cart-panel")
+        let cart = cartHtml[0];
+
+        document.body.after(popup); //Muestro el pop-up al fondo del documento, para que no interfiera con nada
+    }
+
+    // Funciones para validar que no se ingrese Seleccionar.. en popup de la web
+    function checkSeleccionar() {
+        let selectVariants = document.querySelectorAll(".flowy-variants");
+        if (selectVariants !== undefined && selectVariants.length >= 1) {
+            for (let i = 0; i < selectVariants.length; i++) {
+                if (selectVariants[i].value == "seleccionar") {
+                    let botonAgregar = document.querySelector('.flowy-accept');
+                    selectVariants[i].style.borderColor = "#fd4646";
+                    botonAgregar.value = 'SELECCIONAR..';
+                    botonAgregar.style.background = 'gray';
+                    botonAgregar.classList.add('no-aceptar');
+                    botonAgregar.classList.remove('js-addtocart');
+                }
+            }
+        }
+    }
+
+    //Funcion que modifica el precio visible en el pop-up, de acuerdo a las variantes
+    function changePrice(offer) { //Este evento conecta los selectores visibles con el maestro, y cambia el precio dependiendo variante elegida
+
+        let signPrice = '$';
+        if ((LS.country).trim().toUpperCase() === 'BR') {
+            signPrice = 'R$';
+        }
+
+        let price = document.getElementsByClassName('flowy-price');
+        price = price[0];
+        let variantContainer = document.getElementById("flowy-container-options");
+        let cantSelect = variantContainer.childElementCount - 1;
+        let arrSelect = [];
+        let selectOption = '';
+        for (let j = 0; j < cantSelect; j++) {
+            let idSelect = 'select' + j;
+            arrSelect.push(document.getElementById(idSelect));
+            selectOption += (' ' + arrSelect[j].options[arrSelect[j].selectedIndex].value);
+        }
+        let selectMaestro = document.getElementsByClassName('flowy-variants-maestro');
+        selectMaestro = selectMaestro[0];
+        let indiceSelected = 0;
+        let noStockSelect = false;
+        for (let i = 0; i < selectMaestro.length; i++) {
+            if (selectMaestro.options[i].value === selectOption) {
+                selectMaestro.selectedIndex = i;
+                indiceSelected = i;
+                break;
+            }
+            if (i == selectMaestro.length - 1) {
+                noStockSelect = true;
+            }
+        }
+        if (selectMaestro.getAttribute('strategy') == "UPSELLING") {
+            price.innerHTML = `${signPrice}` + Math.round(parseFloat((selectMaestro.options[indiceSelected].dataset.price - selectMaestro.getAttribute('previousprice'))));
+        } else {
+            price.innerHTML = `${signPrice}` + Math.round(parseFloat(selectMaestro.options[indiceSelected].dataset.price));
+        }
+        let selectOptions = document.querySelectorAll(".flowy-variants");
+
+        if (selectOptions !== undefined && selectOptions.length >= 1) {
+            for (let i = 0; i < selectOptions.length; i++) {
+                if (selectOptions[i].value == "seleccionar") {
+                    let botonAgregar = document.querySelector('.flowy-accept');
+                    selectOptions[i].style.borderColor = "#fd4646";
+                    botonAgregar.value = 'SELECCIONAR..';
+                    botonAgregar.style.background = 'gray';
+                    botonAgregar.classList.add('no-aceptar');
+                    botonAgregar.classList.remove('js-addtocart');
+                    return;
+                } else {
+                    selectOptions[i].style.borderColor = "rgba(147, 147, 147, 0.25)";
+                }
+            }
+        }
+        if (noStockSelect) {
+            let botonAgregar = document.querySelector('.flowy-accept');
+            botonAgregar.value = 'SIN STOCK';
+            botonAgregar.style.background = 'gray';
+            botonAgregar.classList.add('no-aceptar');
+            botonAgregar.classList.remove('js-addtocart');
+        } else {
+            let botonAgregar = document.querySelector('.flowy-accept');
+            botonAgregar.value = offer.buttonText.toUpperCase();
+            botonAgregar.style.background = offer.esthetic.colors[0];
+            botonAgregar.classList.remove('no-aceptar');
+            botonAgregar.classList.add('js-addtocart');
+        }
+
+        //Modificacion de cantidad
+        let value = parseInt(document.getElementById("flowy-add-to-cart").value, 10);
+        let options = selectMaestro.options;
+        let stock = options[options.selectedIndex].dataset.stock;
+        let stockManagement = options[options.selectedIndex].dataset.stockManagement;
+        let noStockBoton = document.querySelector(".flowy-accept");
+        if (!noStockBoton.classList.contains("no-aceptar")) {
+            if (stockManagement != "false" && value > stock) {
+                value = stock;
+            }
+        }
+        document.getElementById('flowy-add-to-cart').value = value;
+    };
+
+    function changeSlide(side, productImages) {
+        // let i = $('li.active-dot').index();
+        let i = jq('li.active-dot').index();
+        let newI;
+        if (side === 'right') {
+            newI = i === productImages.length - 1 ? 0 : i + 1;
+        } else {
+            newI = i === 0 ? productImages.length - 1 : i - 1;
+        }
+        changeSlideFromDot(newI, productImages);
+    }
+
+    function changeSlideFromDot(i, productImages) {
+        document.querySelector('.active-dot').classList.remove('active-dot');
+        let dotsList = document.querySelectorAll('.single-dot');
+        dotsList[i].classList.add('active-dot');
+        let images = document.querySelectorAll(".flowy-img");
+        for (let j = 0; j < images.length; j++) {
+            if (images[j].style.display === 'block') {
+                images[j].style.display = 'none';
+                break;
+            }
+        }
+        images[i].style.display = 'block';
+        /*let imageNew = productImages[i].src.slice(6);
+        let srcset = `${imageNew} 480w, ${imageNew} 640w`;
+        image[i].srcset = srcset;*/
+
+    }
+
+    //---Funciones vinculadas a los eventos de los botones en el pop-up
+    //Aceptar pop-up
+    async function onAccept(offer) {
+
+        //console.log("onaccept popup");
+        let form = jq('.flowy-form');
+        //console.log("FORMULARIO: ", form);
+        const themesWhoNeedManualAddToCart = ['Simple'];
+        let flag = false;
+        if(themesWhoNeedManualAddToCart.includes(LS.theme.name)) flag = true;
+        if (flag) await flowyAddToCart(form, "", "AGREGANDO...");
+        await closePopup(offer, true);
+        if (offer.strategy == "UPSELLING") {
+            removeItem(offer.item, 1);
+        }
+        if(LS.store.id === 951218) {
+            let body = document.querySelector("body");
+            let over = document.querySelector('div[data-modal-id="#modal-cart"]')
+            if(body.classList.contains("overflow-none")) {
+                body.classList.remove("overflow-none");
+                over.style.display = 'none';
+            }
+        }
+    };
+
+    //Ir al checkout
+    function goToCheckout() {
+        botonCheckout.remove();
+        contenedorBotonCheckout.innerHTML = buttonCheckoutHTMLOut;
+        let botonV2 = carrito.querySelector('input[type="submit"]');
+        botonV2.click();
+    };
+
+    //Ir a la pagina del producto target
+    async function seeMoreProduct(offer) {
+        await closePopup(offer, false);
+        location.replace(offer.targets[0].url);
+    };
+
+    //Cerrar el popup
+    async function closePopup(offer, accepted) {
+        ////console.log("Close popup");
+        let form = jq('.flowy-form');
+        let price;
+        if (form[0].querySelector("select.flowy-variants-maestro")) {
+            price = form[0].querySelector("select.flowy-variants-maestro > option:checked").dataset.price;
+        } else {
+            if (form[0].querySelector('div.div-only-one-variant')) {
+                //var price = form[0].querySelector("div.div-only-one-variant > input:nth-child(1)").dataset.price;
+                let variante = offer.targets[0].variants[0];
+                if (variante.promotional_price) {
+                    price = variante.promotional_price;
+                } else {
+                    price = variante.price;
+                }
+            } else {
+                price = form[0].querySelector("input[type=hidden]:nth-child(4)").dataset.price;
+            }
+        }
+        offer.item.target_price = price;
+        let target_id = parseInt(form.find('.flowy-hidden-input')[0].value);
+        let quantity = parseInt(form.find('.flowy-quantity')[0].value); // t falso un sero
+        let profitPrevio;
+        if (offer.item.target_price && offer.item.shooter_price) {
+            if (offer.strategy == "CROSSSELLING") {
+                profitPrevio = offer.item.target_price * quantity;
+            } else {
+                ////console.log("offer.item.target_price, quantity, offer.item.shooter_price, offer.item.quantity");
+                ////console.log(parseInt(offer.item.target_price), quantity, offer.item.shooter_price, offer.item.quantity);
+                profitPrevio = offer.item.target_price * quantity - offer.item.shooter_price * offer.item.quantity;
+            }
+        }
+        if (offer.strategy == "CROSSSELLING" && !offer.item.shooter_price) profitPrevio = offer.item.target_price * quantity;
+        if (profitPrevio < 0) profitPrevio = 0;
+        if (accepted) {
+            offer.item.profit = profitPrevio;
+        }
+        if (!accepted) {
+            quantity = 1;
+        }
+        if (!LS.cart.id && offer.showingPlace == 'cart' && !accepted) {
+            await flowyAddToCart(form, "", "REDIRIGIENDO...");
+            let item = {
+                product_id: offer.targets[0].id,
+            }
+            removeItem(item, 0);
+        }
+        let popupDiv = document.getElementById("flowy-popup-div");
+        popupDiv.remove();
+        try {
+            await postStats(offer, accepted, target_id, quantity, profitPrevio);
+        } catch (e) {
+        }
+        if (offer.showingPlace == 'checkout') {
+            goToCheckout();
+        }
+    };
+
+    //Agregar producto al carrito
+    async function flowyAddToCart(form, btn_text, btn_text_disabled, text_stock, is_ajax_editable, callback, callback_error) {
+        console.log("flowyaddtocart popup");
+        var params = form.serializeArray();
+        params.push({
+            name: 'add_to_cart_enhanced',
+            value: 1
+        });
+        console.log("SERIALIZE: ", form.serializeArray());
+
+        var url = form.attr('action');
+        var $button = form.find(".js-addtocart").not(".js-addtocart-placeholder");
+        let cartId, cartSubtotal;
+
+        await jq.ajax({
+            method: "POST",
+            url: url,
+            data: params,
+            beforeSend: function beforeSend(xhr) {
+                $button.attr('disabled', 'disabled').val(btn_text_disabled);
+            }
+        }).done(function (response) {
+            if (response.success) {
+                ////console.log('la respuesta salio bien, llego');
+                cartId = response.cart.id;
+                cartSubtotal = parseFloat(response.cart.subtotal) * 100;
+                var qmodal = form.closest(".modal");
+                var non_bootstrap_modal = form.closest(".js-quickshop-modal-shell");
+
+                if (qmodal.length > 0 && !$(non_bootstrap_modal).length) {
+                    // qmodal.modal('hide');
+                }
+
+                if (jQuery.fancybox) {
+                    jQuery.fancybox.close();
+                }
+
+                $button.attr('disabled', false).val(btn_text);
+                LS.updateCartEnhanced(response.cart, is_ajax_editable, callback, response.html_cart_items);
+                LS.refreshTotals(response); // Updates free shipping message. If free shipping is achieved, automatic product shipping calculator is triggered
+                LS.freeShippingLabelUpdate(response.free_shipping, true);
+                jQuery(".js-ajax-cart-shipping .shipping-calculator-response, #ajax-cart-shipping .js-shipping-calculator-response").hide().empty();
+                jq(".js-empty-ajax-cart").hide();
+
+                var phoneScreen = window.matchMedia("(max-width: 700px)");
+
+                if (phoneScreen.matches) {
+                    jq(".backdrop").hide();
+                }
+
+                jq(".js-visible-on-cart-filled").show();
+                LS.trigger(LS.events.productAddedToCart, {
+                    cart_item: response.item,
+                    quantity_added: response.quantity_added
+                });
+
+                LS.updateCartShipping = function () {
+                    if (jq(".js-shipping-calculator-with-zipcode").length && jq("#cart-shipping-container .js-shipping-input").val()) {
+                        jq("#cart-shipping-container").show();
+                        LS.calculateShippingOnCart();
+                    } else {
+                        LS.updateShippingOnAddToCart();
+                    }
+                }; // Updates shipping when product is added to cart
+
+
+                LS.updateShippingOnShippableCart("addProduct");
+                LS.cart.id = cartId;
+                LS.cart.subtotal = cartSubtotal;
+            } else {
+                // Change value and text to support input type submit or button type submit
+                $button.attr('disabled', false).val(btn_text);
+                jq("<div class='alert alert-warning'>" + text_stock + "</div>").insertAfter($button).delay(5000).fadeOut(500);
+
+                if (callback_error) {
+                    callback_error();
+                }
+            }
+        });
+    };
+
+    //---Funcion para publicar las estadisticas en la base de datos
+    async function postStats(offer, accepted, target_id, quantity, profitPrevio) {
+
+        let randomId = sessionStorage.getItem("cartId") || localStorage.getItem("cartId") || getCookieId("cartId");
+
+        if(!randomId) {
+            randomId = uuidv4();
+        }
+
+        if(!LS.cart.id) {
+            localStorage.setItem("cartId", randomId);
+            document.cookie = `cartId=${randomId}`;
+            sessionStorage.setItem("cartId", randomId);
+        }
+        let LScartId = LS.cart.id;
+        let storeId = LS.store.id;
+        let cartTotal = LS.cart.subtotal / 100;
+        let data = { offer, accepted, target_id, quantity, LScartId, cartTotal, storeId, profitPrevio, randomId };
+        // const url = whiteList.includes(LS.store.id) ? `https://check-offers-up-cross-yvkptqz7ga-uc.a.run.app/api/stats/${offer._id}` : `https://flowy.website/api/stats/${offer._id}`;
+        const url = `https://check-offers-up-cross-yvkptqz7ga-uc.a.run.app/api/stats/${offer._id}`;
+        await fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    };
+
+    function uuidv4() {
+        return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+    }
+
+    function getCookieId(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    });
+})()
+  
