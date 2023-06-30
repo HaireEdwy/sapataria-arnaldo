@@ -1,0 +1,148 @@
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+  :root {
+      --primary-color: #ffffff;
+  }
+
+  body {
+      font-family: Raleway, sans-serif;
+  }
+
+  main {
+      margin: auto;
+      width: 80%;
+  }
+
+  .page-title {
+      margin: 40px auto 10px;
+      /*margin: top right bottom left; */
+      padding-left: 10px;
+      width: 80%;
+      font-size: 24pt;
+      font-weight: 700;
+      color: var(--primary-color);
+      /* Código hexadecimal da cor */
+  }
+
+  .page-subtitle {
+      margin: 10px auto 10px;
+      padding-left: 10px;
+      width: 80%;
+      font-size: 20pt;
+  }
+
+  .titulo-artigo {
+      font-size: 18pt;
+      margin: 10px 10px 10px 10px;
+  }
+
+  .subtitulo-artigo {
+      font-size: 14pt;
+      margin: 10px 10px 10px 10px;
+  }
+
+  .paragrafo-artigo {
+      font-size: 12pt;
+      margin: 10px 10px 10px 10px;
+      line-height: 1.4;
+  }
+
+  .categoria-produto {
+      font-size: 140%;
+      font-weight: 600;
+      margin: 10px 10px 10px 10px;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      line-height: 3;
+      padding-left: 20px;
+  }
+
+  .vitrine-produtos {
+      margin: 40px 0;
+  }
+
+  .lista-produtos {
+      margin: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+  }
+
+  .imagem-produto {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      object-position: 0 0;
+  }
+
+  .rodape {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 20px;
+  }
+
+  .imagem-banner {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: 0 10%;
+  }
+
+  /* Navbar (Menu Principal) */
+  .navbar {
+      width: 80%;
+      margin: auto;
+  }
+
+  .navbar ul {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .navbar li {
+      padding: 20px;
+      text-decoration: none;
+  }
+
+  .navbar a:link,
+  .navbar a:link:visited {
+      color: var(--primary-color);
+      font-weight: 700;
+  }
+
+  .navbar li:hover,
+  .navbar li:hover>a {
+      background-color: #ffffff;
+  }
+
+  contact-form input,
+  contact-form textarea,
+  contact-form select,
+  contact-form button {
+      width: 100%;
+      box-sizing: border-box;
+
+      /* Página de contato */
+      .container
+      /*o que ha de errado?*/
+      display: flex;
+
+      justify-content: space-between .container img {
+          width: 200px;
+      }
+
+      .container h3 {
+          font-size: 14pt;
+          font-weight: 600;
+      }
+
+      label,
+      button {
+          display: block #a75207
+      }
+
+
+      contact-form {
+          width: 60%;
+          margin: auto;
+      }

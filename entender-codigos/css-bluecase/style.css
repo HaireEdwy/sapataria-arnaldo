@@ -1,0 +1,1208 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Josefin+Sans:wght@400;700&family=Pacifico&family=Urbanist:ital,wght@0,300;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #FFF; 
+    --color-primary: #703b1c;
+    --color-secundary: #482b1a;
+    --color-tercary: #897853;
+    --color-text: #e4e4e4;
+    scroll-behavior: smooth;
+}
+
+[data-theme='dark'] {
+    --backround-color: #000;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/****************************** HEADER ******************************/
+
+
+.header {
+    position: relative;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background-color: var(--color-secundary);
+}
+
+.header-title {
+    margin-left: 60px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 42px;
+    color: var(--color-text);
+}
+
+.navbar {
+    width: 500px;
+    margin-right: 50px;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-text);
+    transition: all 400ms;
+}
+
+.navbar ul li a:hover {
+    padding: 10px;
+    border-radius: 6px;
+    color: #d67e43;
+}
+
+.navbar ul li .bar {
+    width: 10px;
+    background-color: var(--color-text);
+    color: var(--color-text);
+}
+
+.navbar ul li button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    font-size: 20px;
+    background-color: var(--color-secundary);
+    color: var(--color-text);
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.navbar ul li button:hover {
+    margin-left: 10px;
+    color: #d67e43;
+}
+
+
+/****************************** HOME ******************************/
+
+
+.philosophy-section-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+}
+
+.banner-ctlg {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    object-position: 50% 74%;
+    transition: all 500ms;
+}
+
+.banner-ctlg:hover {
+    width: 100%;
+    height: 600px;
+    object-position: 0 81%;
+}
+
+.philosophy-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.philosophy-text .philosophy-title {
+    padding: 12px;
+    text-align: center;
+    font-size: 23px;
+    border-radius: 6px 6px 0 0;
+    color: #EFEFEF;
+}
+
+.philosophy-about {
+    width: 600px;
+    height: 400px;
+    margin: 60px 0 14px 0;
+    padding: 18px;
+    border-radius: 0 0 6px 6px;
+}
+
+.philosophy-about .data {
+    font-size: 40px;
+    color: var(--color-primary);
+}
+
+.philosophy-about p {
+    margin-bottom: 8px;
+    line-height: 28px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+.gallery img {
+    width: 600px;
+    height: 750px;
+    margin-top: -50px;
+}
+
+
+/****************************** SOBRE NÓS ******************************/
+
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    margin: 80px 0 -70px 0;   
+}
+
+.arnaldo-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.shoeshop-history,
+.arnaldo-history {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+}
+
+.shoeshop-history {
+    margin-bottom: 60px;
+}
+
+.about-img img {
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+    transition: all 300ms;
+    object-fit: cover;
+}
+
+.about-img img:hover {
+    scale: 1.01;
+    box-shadow: 0 0 10px #7e7a78;
+}
+
+.shoeshop {
+    width: 620px;
+}
+
+.shoeshop:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+}
+
+.shoeshop-history .history-title,
+.arnaldo-history .history-title {
+    text-align: center;
+    padding: 12px;
+    color: var(--color-primary);
+}
+
+.shoeshop-history .shoeshop-text,
+.arnaldo-history .arnaldo-text {
+    margin: 0 0 14px 0;
+    padding: 18px;
+    transition: all 100ms;
+}
+
+.shoeshop-history p,
+.arnaldo-history p {
+    margin-bottom: 8px;
+    line-height: 20px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+.about-gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 10px;
+    width: 600px;
+    height: auto;
+} 
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 10px;
+    width: 600px;
+    height: 600px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+} 
+
+.about-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__item--1 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    transition: all 500ms;
+}
+
+.gallery__item--1 img {
+    border-radius: 10px 0 0 0;
+}
+
+.gallery__item--1:hover {
+    scale: 1.03;
+}
+  
+.gallery__item--2 {
+    grid-column: 3/5;
+    grid-row: 1/3;
+    transition: all 500ms;
+}
+
+.gallery__item--2:hover {
+    scale: 1.03;
+}
+  
+.gallery__item--3 {
+    grid-column: 5/9;
+    grid-row: 1/6;
+    object-fit: cover;
+    transition: all 500ms;
+}
+
+.gallery__item--3 img {
+    border-radius: 0 10px 0 0;
+}
+
+.gallery__item--3:hover {    
+    scale: 1.03;
+}
+  
+.gallery__item--4 {
+    grid-column: 1/5;
+    grid-row: 3/7;
+    transition: all 500ms;
+}
+
+.gallery__item--4:hover {
+    scale: 1.03;
+}
+  
+.gallery__item--5 {
+    grid-column: 1/5;
+    grid-row: 7/9;
+    transition: all 500ms;
+}
+
+.gallery__item--5 img {
+    border-radius: 0 0 0 10px;
+}
+
+.gallery__item--5:hover {
+    scale: 1.03;
+}
+  
+.gallery__item--6 {
+    grid-column: 5/9;
+    grid-row: 6/9;
+    transition: all 500ms;
+}
+
+.gallery__item--6 img {
+    border-radius: 0 0 10px 0;
+}
+
+.gallery__item--6:hover {
+    scale: 1.03;
+}
+
+
+/****************************** CATÁLOGO ******************************/
+
+
+.catalog-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.collection img {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+ }
+
+.catalog-page .catalog-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: -250px 0 100px 0;
+    font-size: 28px;
+}
+
+.catalog-page .catalog-text h1 {
+    margin: 390px 0 60px;
+    font-family: 'Urbanist', sans-serif;    
+    font-size: 53px;
+    color: var(--color-secundary);
+}
+
+.promotion-banner {
+    width: 150%;
+    height: 470px;
+    margin: 0 0 20px 0;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+
+.promotion-banner:hover {
+    transform: scale3d(1.03, 1.03, 1.6);
+    box-shadow: 0 0 10px #8f8d8d;
+}
+
+.catalog-navbar {
+    width: 450px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    transition: all 300ms;
+}
+
+[data-animation="animation"].animation {
+    position: fixed;
+    top: 40px;
+}
+
+.catalog-navbar:hover {
+    scale: 1.06;
+}
+
+.catalog-navbar ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.catalog-navbar ul li {
+    transition: all 500ms;
+}
+
+.catalog-navbar ul li a {
+    font-family: 'Urbanist', sans-serif;
+    text-decoration: none;
+    color: #fff;
+}
+
+.catalog-navbar ul li:hover {
+    scale: 1.08;
+}
+
+.catalog-page p {
+    margin: 20px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: bold;
+    color: #494848;
+}
+
+.products {
+    width: 100%;
+}
+
+.products .bags,
+.products .shoes,
+.products .others {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+
+
+.products .bags .card img,
+.products .shoes .card img,
+.products .others .card img {
+    width: 320px;
+    height: 320px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    background-color: #f0f0f0;
+}   
+
+.products .bags .card .text-card,
+.products .shoes .card .text-card,
+.products .others .card .text-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: #fff;
+} 
+
+.products .bags .card .text-card p,
+.products .shoes .card .text-card p,
+.products .others .card .text-card p {
+    width: 200px;
+    margin: 10px 0 10px 0;
+    color: var(--color-text);
+}
+
+.products .bags .card .text-card i,
+.products .shoes .card .text-card i,
+.products .others .card .text-card i {
+    margin-top: 10px;
+}
+
+.products .bags .card .text-card i.active-heart,
+.products .shoes .card .text-card i.active-heart,
+.products .others .card .text-card i.active-heart {
+    animation: 1s heartAnimation ease;
+}
+
+.products .bags .card .shopping,
+.products .shoes .card .shopping,
+.products .others .card .shopping {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+
+.button-top {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: var(--color-primary);
+}
+
+.button-top a {
+    font-size: 20px;
+    color: #fff;
+}
+
+[data-animation="btn"].btn {
+    position: fixed;
+    top: 120px;
+    left: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 500ms;
+}
+
+
+/****************************** CONTATO ******************************/
+
+
+.contact-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-section .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+}
+
+.contact-section .contact-form .form-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;    
+    padding: 6px;
+    font-size: 26px;
+    color: #fff;
+    border-radius: 5px; 
+    border-bottom: 2px solid #fff   
+}
+
+.contact-section .contact-form label {
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.contact-section .contact-form input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-section .contact-form select {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 18px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-section .contact-form textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+}
+
+.contact-section .contact-form .contact-button {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;   
+    background-color: #cd590a;
+    color: #fff;
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.contact-section .contact-form .contact-button:hover {
+    background-color: #ff6700;
+}
+
+.contact-section .store-local {
+    margin-top: 60px;
+}
+
+.contact-section .store-local img {
+    width: 580px;
+    height: 452px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    object-position: 3 0% 60%;
+}
+
+.contact-section .store-local .informations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.contact-section .store-local .informations .opening-hours {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .store-local .informations .opening-hours h1,
+.contact-section .store-local .informations .address h1 {
+    font-weight: bold;
+    border-bottom: 2px solid #EFEFEF;
+    margin-bottom: 8px;
+}
+
+.contact-section .store-local .informations .opening-hours p {
+    width: 240px;
+}
+
+.contact-section .store-local .informations .address {
+    text-align: end;
+}
+
+
+/****************************** LOGIN  ******************************/
+
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-img {
+    width: 100%;
+    height: 77.6vh;
+    object-fit: cover;
+    object-position: 0 85%;
+    opacity: 0.4;
+}
+
+.login-form {
+    position: absolute;
+    z-index: 2;
+    width: 400px;
+}
+
+.div-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 450px;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+}
+
+.div-form .login-title {
+    margin: 20px 0;
+    font-size: 40px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+
+.div-form label {
+    margin: 20px 0 3px -244px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.div-form input {
+    width: 80%;
+    height: 32px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    transition: all 500ms;
+}
+
+.div-form input:focus {
+    scale: 1.02;
+    box-shadow: none;
+}
+
+.div-form button {
+    width: 80%;
+    height: 35px;
+    margin-top: 55px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #cd590a;
+    color: #fff;
+    transition: all 600ms;
+    cursor: pointer;
+}
+
+.div-form button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 4px #d85d0a;
+    background-color: #ff6700;
+}
+
+.div-form .new-password {
+    margin: 14px 0 10px -150px;
+    text-decoration: none;
+    color: #e9e1d1;
+    transition: all 500ms;
+}
+
+.div-form .register {
+    margin-top: 22px;
+    text-decoration: none;
+    color: #e9e1d1;
+    transition: all 500ms;
+}
+
+.button-top {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.button-top a {
+    font-size: 20px;
+    color: #fff;
+}
+
+
+/****************************** CADASTRO ******************************/
+
+
+.register-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+}
+
+.register-form .form-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 6px;
+    font-size: 26px;
+    border-radius: 5px; 
+    border-bottom: 2px solid #fff;   
+    color: #fff;
+}
+
+.register-section .register-form label {
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.register-section .register-form input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+}
+
+.register-section .register-form select {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+}
+
+.register-section .register-form textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+}
+
+.register-section .register-form .register-button {
+    width: 100%;
+    height: 36px;
+    margin-top: 20px;
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;   
+    background-color: #cd590a;
+    color: #fff;
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.register-section .register-form .register-button:hover {
+    transform: scale3d(1.03, 1.06,  1.1);
+    background-color: #ff6700;
+}
+
+.shopping-cart {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 124%;
+    background-color: #dddddd;
+}
+
+.shopping-cart.active {
+    display: block;
+    animation: 1s openShoppingCart  none ease;
+}
+
+
+/****************************** NOVA SENHA ******************************/
+
+
+
+
+
+/****************************** ANIMAÇÕES ******************************/
+
+
+@keyframes openShoppingCart {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 30%;
+    }
+}
+
+@keyframes heartAnimation {
+    20% {
+        transform: translateY(-10px);
+        font-size: 20px;
+    }
+    
+    30% {
+        transform: translateY(-14px);
+        transform: rotate(-8deg);
+        font-size: 22px;
+    }
+    
+    60% {
+        transform: translateY(-12px);
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0);
+        scale: 1;
+    }
+}
+
+
+/****************************** FOOTER  ******************************/
+
+
+.footer-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    margin-top: 60px;
+    padding: 20px;
+    background-color: var(--color-secundary);
+    color: #FFF;
+}
+
+.footer-page .address {
+    width: 300px;
+}
+
+.footer-page .address p:first-child {
+    margin-bottom: 10px;
+}
+
+.footer-page .direct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+
+.footer-page .direct .footer-title {
+    margin-top: -10px;
+    font-size: 46px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.footer-page .direct .copyright {
+    font-size: 14px;
+}
+
+.footer-page .icons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    padding: 20px 0 20px 0;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+#footer-about.footer-page {
+    margin-top: 100px;
+}
+
+#footer-contact.footer-page {
+    position: absolute;
+    bottom: 0;
+}
+
+#footer-login.footer-page {
+    margin-top: 0;
+}
+
+
+/****************************** RESPONSIVIDADE  ******************************/
+
+
+@media (max-width: 420px) {
+
+    /****************************** HEADER ******************************/
+
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header .header-title {
+        margin: 50px 0 30px 0;
+        font-size: 25px;
+    }
+
+    .header .navbar {
+        width: 100%;
+        margin: 0;
+        background-color: var(--color-secundary);
+    }
+    
+    .header .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 20px 0 28px 0;
+    }
+    
+    .header .navbar ul li a {
+        font-size: 18px;
+        color: #FFF;
+    }
+
+
+    /****************************** HOME ******************************/
+
+
+    .philosophy-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .philosophy-section .philosophy-text {
+        width: 85%;
+        margin: 80px 0 604px 0;
+    }
+
+    .philosophy-section-main .banner-ctlg {
+        margin-top: 28px;
+    }
+
+    .philosophy-section .gallery {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 17vw);
+        width: 85%;
+        height: 700px;
+    }
+
+
+    /****************************** SOBRE NÓS ******************************/   
+
+
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .about-img img {
+        width: 85%;
+        object-fit: cover;
+    }
+
+    .shoeshop-history,
+    .arnaldo-history {
+        width: 85%;
+    }
+
+    .about-gallery {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 12vw);
+        grid-gap: 15px;
+        width: 85%;
+        height: auto;
+    } 
+
+    .shoeshop-history,
+    .arnaldo-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /****************************** CATÁLOGO ******************************/
+
+
+    .catalog-page {
+        margin-top: 34px;
+    }
+
+    .catalog-page .catalog-text {
+        width: 85%;
+        text-align: center;
+    }
+
+    .catalog-page .catalog-text .catalog-navbar {
+        width: 90%;
+    }
+
+    .catalog-page .products .bags,
+    .catalog-page .products .shoes,
+    .catalog-page .products .others {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin: 180px 0;
+    }
+
+    .catalog-page .products .bags .card,
+    .catalog-page .products .shoes .card,
+    .catalog-page .products .others .card {
+        margin: 20px;
+    }
+
+    .button-top {
+        bottom: 10px;
+    }
+
+
+    /****************************** CONTATO ******************************/
+
+
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .contact-form {
+        width: 80%;
+        margin-bottom: -32px;
+    }
+
+    .contact-section .store-local {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 380px;
+        height: auto;
+        margin-bottom: 100px;
+    }
+  
+    .contact-section .store-local img {
+        width: 100%;
+    }
+
+    .store-local .informations {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        height: 242px;
+    }
+
+    .store-local .informations .opening-hours {
+        width: 150px;
+        margin: 0 0 0 100px;
+    }
+    
+    .store-local .informations .address {
+        width: 150px;
+        margin: 0 0 0 100px;
+    }
+
+  
+    /****************************** LOGIN ******************************/
+
+
+    .login-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .login-img {
+        width: 100%;
+        height: 90vh;
+        margin: 30px 0 0 0;
+        opacity: 0.4;
+    }
+
+
+    /****************************** FOOTER ******************************/
+
+    .footer-page {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .footer-page .direct {
+        order: -1;
+        margin: 8px 0 20px 0;
+    }
+
+    .footer-page .icons {
+        margin-top: 20px;
+    }
+
+    #footer-contact.footer-page {
+        position: absolute;
+        bottom: -1000px;
+    }
+
+    #footer-login.footer-page {
+        margin-top: 0;
+    }
+}
