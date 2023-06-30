@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* --CONFIGURAÇÕES DO MENU DE NAVEGAÇÃO-- */
+
+.navbar {
+  height: 90px;
+  background-color: #753f1b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Lato', monospace;
+  font-weight: bold;
+  padding: 0px 50px;
+
+}
+
+/* --Formatação da logo-- */
+nav > a {
+
+  display:inline-block;
+
+  height:80%;
+
+}
+
+/* --Formatação da logo-- */
+
+nav > a > img {
+
+   height:100%;
+
+}
+ 
+
+/* --Tamanho da logo-- */
+
+.navbar img {
+  height: 80%;
+
+}
+
+/* --Espaçamento do menu-- */
+
+.navbar  ul {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+
+}
+
+/* --Menu em letras maiúsculas-- */
+
+.navbar >ul>li {
+  font-size: 25px;
+  text-transform: uppercase;
+
+}
+
+/* --Cor do menu-- */
+
+.navbar>ul>li>a {
+  color: #f1f1f1;
+  text-decoration: none;
+  justify-content: end;
+  
+}
+
+/* --Estilização do h2 login-- */
+
+.div-login > h2 {
+  color: #ffffff;
+  font-size: 15px;
+  margin-top: 8px;
+  display: inline-block;
+
+}
+
+/* --Alinhamento do h2 login com o icone-- */
+
+ul {
+  text-align: center;
+
+}
+
+/* --Remoção do Uppercase-- */
+
+#login-btn {
+  text-transform:capitalize;
+
+}
+
+/* --Tamanho do ícone login-- */
+
+.navbar>ul>li>a>i { 
+  font-size: 30px;
+
+}
+
+
+/* --Tamanho do ícone login-- */
+
+.navbar>ul>li>a>i { 
+  font-size: 30px;
+
+}
+
+
+/* --Tamanho do ícone login-- */
+
+.navbar>ul>li>a>i { 
+  font-size: 30px;
+
+}
+
+/* efeito navbar */
+
+.navbar{
+  transition: transform .2s;
+}
+
+.navbar:hover{
+  transition: 300ms; 
+  transform: scale3d(1.03, 1.03, 1.6);
+  box-shadow: 0 0 10px #8f8d8d; 
+}
+
+.navbar ul li:hover{
+  scale: 1.08;
+}
+
+.navbar ul li {
+  transition: all 500ms;
+}
+/* Responsividade */
+
+@media screen and (max-width: 800px) {
+  .navbar img {
+    height: 88%;
+  }
+  .navbar ul {
+    width: 450px;
+  }
+  .navbar>ul>li {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .navbar ul {
+    width: 350px;
+  }
+  .navbar>ul>li {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 570px) {
+  .navbar img {
+    height: 55%;
+  }
+  .navbar ul {
+    width: 250px;
+  }
+  .navbar>ul>li {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .navbar img {
+    height: 52%;
+  }
+  .navbar ul {
+    width: 230px;
+  }
+  .navbar>ul>li {
+    font-size: 10px;
+  }
+}
+
+
+/* final responsividade nav */
+
+
+
+
+
