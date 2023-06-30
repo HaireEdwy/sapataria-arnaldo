@@ -5,60 +5,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Desde 1960, nossa Sapataria presta serviços de alto nível em questão de qualidade em reparos e vendas de diversos produtos relacionados ao couro.">
+    <meta name="author" content="Leonardo Talanski">
+    <title>Home</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <!--Primeira E MELHOR FORMA de Inclusão do CSS-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    
+    <!-- site de icones -->   
+  
+    <script src="https://kit.fontawesome.com/9ec67f2471.js" crossorigin="anonymous"></script>
 
-    <!-- Segunda Forma de Inclusão do CSS
-    <style>
-        body {
-            color: blue
-        }
-    </style> -->
-
-
-    <title>Arnoldo Shoes</title>
 </head>
-<!-- CSS INLINNE -->
 
-<body> <!-- alt=shift=f para identar -->
+<body>
+<!----------------------- AQUI COMEÇA O NAVBAR --------------------->  
+    <nav class="navbar">
+        <a href="index.html"><img src="assets/nav/logo-sapataria-branco opti.png" alt=" logo sapato branco "></a>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catálogo</a></li>
+            <li><a href="about-us.html">Sobre-Nós</a></li>
+            <li><a href="contact.html">Contato</a></li>
+
+            <li>
+                <a href="login.html">
+                <div class="div-login">
+                <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+                <h2 id="login-btn"> Login </h2>
+                </div>
+                </a>
+            </li>
+        </ul>
+    </nav>     
+<!----------------------- AQUI TERMINA O NAVBAR ---------------------> 
     <header>
+        <div class="title-banner">
+            <h1>SAPATARIA ARNALDO</h1>
+            <p>Descubra a elegância e o conforto em cada passo.</p>
+            <p>Nossa sapataria oferece calçados de qualidade,estilo e durabilidade, perfeitos para realçar sua personalidade e acompanhar seu dia a dia.</p>
+        </div>
 
-        <!-- Menu de Navegação -->
-        <nav class="navbar">
-            <ul>
+        <figure>
+            <a href="#filosofia-section"><img class="width-setinha" src="./assets/icons/arrowDown.svg"alt="setinha"></a>
+        </figure>
+
+        <div class="container-banner-index">
+            <img src="assets/background/Banner index Optimizado.jpg" alt="sapateiro fazendo um sapato">
+        </div>
+
+    </header>
+    <section id="filosofia-section" class="filosofia">
+
+        <div>
+            <h1>Filosofia da Empresa</h1>
+
+            <p> Nossa sapataria carrega consigo uma filosofia única, baseada na tradição, no artesanato e no compromisso
+                com a qualidade. Essa filosofia pode ser percebida em diversos aspectos do negócio, desde a escolha dos
+                materiais até a forma como os serviços são prestados aos clientes. </p>
+            <p> Em primeiro lugar, Nós valorizamos a tradição e o artesanato na confecção e reparo dos calçados. Isso
+                significa que a nossa sapataria prioriza o uso de materiais de alta qualidade e durabilidade, como o
+                couro legítimo, e a utilização de técnicas manuais para a confecção e reparo dos calçados. Além disso,
+                temos um compromisso com a personalização dos serviços, buscando entender as necessidades de cada
+                cliente e oferecendo soluções customizadas para atendê-las. </p>
+            <p> Em segundo lugar, priorizamos também a relação com os clientes e a fidelização dos mesmos. Isso pode se
+                traduzir em um atendimento personalizado e atencioso, que busca entender as necessidades de cada cliente
+                e oferecer soluções que atendam às suas expectativas. Além disso, investimos na manutenção de um
+                relacionamento de confiança com os clientes, oferecendo garantias e prazos realistas para a prestação
+                dos serviços. Tudo isso faz parte da filosofia de uma sapataria antiga, que busca se diferenciar pela
+                qualidade e pelo compromisso com a satisfação dos clientes.</p>
+        </div>
+
+        <div>
+            <h1>Prazos dos serviços</h1>
+            <p> O prazo para a prestação de serviços da nossa sapataria varia de acordo com diversos fatores, como a
+                complexidade do serviço, a disponibilidade de materiais e mão de obra, e o agendamento prévio. Por isso,
+                é sempre importante nos consultar enviando um formulário na aba Contato para saber o tempo estimado para
+                a realização do serviço desejado e planejar-se adequadamente.</p>
+        </div>
+
+    </section>
+
+<!-------------------- AQUI COMEÇA O FOOTER ------------------------->
+    <footer class="rodape">
+
+        <section class="menu-rodape">
+
+            <ul class="footer-itens">
+                <li><a href="index.html"> Volta ao topo </a></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="catalog.html"> Catálogo</a></li>
+                <li><a href="about-us.html"> Sobre-nós</a></li>
+                <li><a href="contact.html"> Contato</a></li>
             </ul>
-        </nav>
-        <h1 class="page-title">Arnold's Shoes</h1>
-        <h2 class="page-subtitle">Bem-vindo a Arnoldo's Shoes</h2>
-    </header>
-    <header>
-        <h1>Sr. Arnaldo</h1>
-        <h>Desde 1965</h>
-        <h2>Criador</h2>
-        <img src="img/logo-sapataria-arnaldo-haire-2.pngwi" alt="">
-        
-        <img class="imagem-home" src="https://cdn.mensagenscomamor.com/content/images/m000519147.jpg?v=1">
-        <img class="imagem-home"
-            src="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/406/ee4/5f7a4b529dbfd7ea9a4c478b65.jpg">
-    </header>
 
+            </div>
+            <div class="social-itens">
+                <p>Redes Sociais</p>
 
-    <footer>
-        <adress>
-            <h1>Sapataria do Arnaldo</h1>
+                <div>
+                    <img src="./assets/footer/Gmail.svg" alt=" icone gmail">
+                    <img src="./assets/footer/Instagram.svg" alt="icone Instagram">
+                    <img src="./assets/footer/Whatsapp.svg" alt="icone whatsapp">
+                </div>
 
-            <p>Rua Forte do Leme, 52</p>
-            <p>Jd. St. Adélia</p>
-            <p>São Paulo - SP</p>
-            <p>Telefone: (11) 3371-1279</p>
-        </adress>
+            </div>
+            <div class="payment-logos">
+                <p>Formas de pagamento</p>
+
+                <div>
+                    <img src="./assets/footer/Pix 10801080.svg" alt="icone pix">
+                    <img src="./assets/footer/mc_vrt_pos.svg" alt="icone master card">
+                    <img src="./assets/footer/expresso-americano.svg" alt="icone american express">
+                </div>
+
+                <div class="security">
+                    <p>Compra segura</p>
+                    <img src="">
+                </div>
+            </div>
+
+            <address class="adress-style">
+                <p>Rua Forte Do Leme, 52<br>
+                    Jd Santa Adélia<br>
+                    São Paulo-SP<br>
+                    (11)5581-5581 </p>
+            </address>
+
+        </section>
+
+        <div class="copyrigth">
+            <p>Copyrigth by Sapataria Arnaldo</p>
+            <p>Desenvolvido por CouroLab</p>
+        </div>
+
     </footer>
+<!-------------------- AQUI TERMINA O FOOTER ------------------------->
 </body>
-
 </html>
